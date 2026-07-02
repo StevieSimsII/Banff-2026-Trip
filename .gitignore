@@ -1,4 +1,5 @@
-media/raw/
+media/raw/*
+!media/raw/.gitkeep
 
 # Keep original camera/video files out of the repo by default.
 *.HEIC
