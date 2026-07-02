@@ -39,6 +39,7 @@ OPTIMIZED_DIR = ROOT / "media" / "optimized"
 THUMBS_DIR = ROOT / "media" / "thumbs"
 VIDEOS_DIR = ROOT / "media" / "videos"
 DATA_FILE = ROOT / "data" / "photos.json"
+PHOTO_DATA_JS = ROOT / "assets" / "photo-data.js"
 
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".heic"}
 VIDEO_EXTS = {".mov", ".mp4"}
@@ -68,6 +69,16 @@ def load_existing() -> list[dict[str, Any]]:
         print(f"Could not read existing photos.json: {exc}")
         return []
     return data if isinstance(data, list) else []
+
+
+def write_photo_data_js(items: list[dict[str, Any]]) -> None:
+    PHOTO_DATA_JS.parent.mkdir(parents=True, exist_ok=True)
+    payload = json.dumps(items, indent=2)
+    PHOTO_DATA_JS.write_text(
+        "// Generated from data/photos.json for local file previews.\n"
+        f"window.BANFF_PHOTOS = {payload};\n",
+        encoding="utf-8",
+    )
 
 
 def find_existing(item_by_id: dict[str, dict[str, Any]], item_by_source: dict[str, dict[str, Any]], source: Path) -> dict[str, Any]:
@@ -229,6 +240,7 @@ def main() -> None:
             added_ids.add(record["id"])
 
     DATA_FILE.write_text(json.dumps(updated, indent=2) + "\n", encoding="utf-8")
+    write_photo_data_js(updated)
 
     image_count = sum(1 for item in processed_by_source.values() if item.get("type") == "image")
     video_count = sum(1 for item in processed_by_source.values() if item.get("type") == "video")
@@ -237,6 +249,7 @@ def main() -> None:
     print(f"Videos copied: {video_count}")
     print(f"Skipped files: {skipped}")
     print(f"Updated: {rel(DATA_FILE)}")
+    print(f"Updated: {rel(PHOTO_DATA_JS)}")
 
 
 if __name__ == "__main__":

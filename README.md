@@ -10,6 +10,7 @@ run directly on GitHub Pages.
 index.html
 assets/styles.css
 assets/app.js
+assets/photo-data.js
 data/photos.json
 media/optimized/
 media/thumbs/
@@ -55,7 +56,9 @@ python scripts/process_media.py
 ```
 
 The script creates optimized images in `media/optimized/`, thumbnails in
-`media/thumbs/`, and updates `data/photos.json`.
+`media/thumbs/`, updates `data/photos.json`, and refreshes
+`assets/photo-data.js` so the real gallery can still load when `index.html` is
+opened directly from your computer.
 
 HEIC files are supported when the optional dependency is installed:
 

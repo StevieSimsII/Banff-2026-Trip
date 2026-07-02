@@ -128,6 +128,10 @@ const lightboxCaption = document.querySelector("#lightboxCaption");
 const lightboxTags = document.querySelector("#lightboxTags");
 
 async function loadMedia() {
+  if (Array.isArray(window.BANFF_PHOTOS) && window.BANFF_PHOTOS.length) {
+    return window.BANFF_PHOTOS;
+  }
+
   try {
     const response = await fetch("data/photos.json", { cache: "no-store" });
     if (!response.ok) {
@@ -136,7 +140,7 @@ async function loadMedia() {
     const media = await response.json();
     return Array.isArray(media) ? media : FALLBACK_MEDIA;
   } catch (error) {
-    console.info("Using built-in sample media. This is normal when opening index.html directly.", error);
+    console.info("Using built-in sample media because photos.json could not be loaded.", error);
     return FALLBACK_MEDIA;
   }
 }
