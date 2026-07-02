@@ -8,11 +8,10 @@ window.BANFF_PHOTOS = [
     "caption": "Travel day and first mountain-town views around Banff.",
     "tags": [
       "family",
-      "highlight",
       "landscape",
       "town"
     ],
-    "featured": true,
+    "featured": false,
     "sourceName": "IMG_0455.HEIC",
     "src": "media/optimized/img-0455.jpg",
     "thumb": "media/thumbs/img-0455.jpg",
@@ -162,10 +161,10 @@ window.BANFF_PHOTOS = [
   },
   {
     "id": "img-0467",
-    "title": "Lake Day 04",
+    "title": "Moraine Lake Overlook",
     "day": "Day 2",
     "location": "Moraine Lake & Lake Louise",
-    "caption": "Turquoise lake views and mountain backdrops from Moraine Lake and Lake Louise.",
+    "caption": "A cinematic view over Moraine Lake, turquoise water, pine, and snow-lined peaks.",
     "tags": [
       "highlight",
       "lake",
@@ -882,11 +881,10 @@ window.BANFF_PHOTOS = [
     "location": "Moraine Lake & Lake Louise",
     "caption": "Turquoise lake views and mountain backdrops from Moraine Lake and Lake Louise.",
     "tags": [
-      "highlight",
       "lake",
       "landscape"
     ],
-    "featured": true,
+    "featured": false,
     "sourceName": "IMG_0503.HEIC",
     "src": "media/optimized/img-0503.jpg",
     "thumb": "media/thumbs/img-0503.jpg",
@@ -1184,15 +1182,16 @@ window.BANFF_PHOTOS = [
   },
   {
     "id": "img-0525",
-    "title": "Lake Day 64",
+    "title": "Hidden Turquoise View",
     "day": "Day 2",
     "location": "Moraine Lake & Lake Louise",
-    "caption": "Turquoise lake views and mountain backdrops from Moraine Lake and Lake Louise.",
+    "caption": "A quieter lake view framed by evergreen forest and layered mountain rock.",
     "tags": [
+      "highlight",
       "lake",
       "landscape"
     ],
-    "featured": false,
+    "featured": true,
     "sourceName": "IMG_0525.HEIC",
     "src": "media/optimized/img-0525.jpg",
     "thumb": "media/thumbs/img-0525.jpg",
@@ -1330,12 +1329,11 @@ window.BANFF_PHOTOS = [
     "location": "Banff Gondola, Johnston Canyon & Canmore",
     "caption": "High overlooks, canyon trails, and a relaxed Canmore stop.",
     "tags": [
-      "highlight",
       "landscape",
       "town",
       "waterfall"
     ],
-    "featured": true,
+    "featured": false,
     "sourceName": "IMG_0545.HEIC",
     "src": "media/optimized/img-0545.jpg",
     "thumb": "media/thumbs/img-0545.jpg",
@@ -1524,16 +1522,17 @@ window.BANFF_PHOTOS = [
   },
   {
     "id": "img-0562",
-    "title": "Gondola Canyon & Canmore 17",
+    "title": "Johnston Canyon Stonework",
     "day": "Day 3",
     "location": "Banff Gondola, Johnston Canyon & Canmore",
-    "caption": "High overlooks, canyon trails, and a relaxed Canmore stop.",
+    "caption": "Carved canyon rock and rushing glacier water along the Johnston Canyon trail.",
     "tags": [
+      "highlight",
       "landscape",
       "town",
       "waterfall"
     ],
-    "featured": false,
+    "featured": true,
     "sourceName": "IMG_0562.HEIC",
     "src": "media/optimized/img-0562.jpg",
     "thumb": "media/thumbs/img-0562.jpg",
@@ -1740,15 +1739,16 @@ window.BANFF_PHOTOS = [
   },
   {
     "id": "img-0596",
-    "title": "Yoho National Park 01",
+    "title": "Sulphur Mountain Vista",
     "day": "Day 4",
     "location": "Yoho National Park",
-    "caption": "Mountain valleys, forest trails, and big Yoho National Park scenery.",
+    "caption": "A sweeping Banff overlook with the valley dropping away under dramatic clouds.",
     "tags": [
+      "highlight",
       "landscape",
       "waterfall"
     ],
-    "featured": false,
+    "featured": true,
     "sourceName": "IMG_0596.HEIC",
     "src": "media/optimized/img-0596.jpg",
     "thumb": "media/thumbs/img-0596.jpg",
@@ -1898,11 +1898,10 @@ window.BANFF_PHOTOS = [
     "location": "Yoho National Park",
     "caption": "Mountain valleys, forest trails, and big Yoho National Park scenery.",
     "tags": [
-      "highlight",
       "landscape",
       "waterfall"
     ],
-    "featured": true,
+    "featured": false,
     "sourceName": "IMG_0619.HEIC",
     "src": "media/optimized/img-0619.jpg",
     "thumb": "media/thumbs/img-0619.jpg",
@@ -2098,15 +2097,16 @@ window.BANFF_PHOTOS = [
   },
   {
     "id": "img-0634",
-    "title": "Yoho National Park 22",
+    "title": "Waterfall Trail Portrait",
     "day": "Day 4",
     "location": "Yoho National Park",
-    "caption": "Mountain valleys, forest trails, and big Yoho National Park scenery.",
+    "caption": "A favorite waterfall stop with mountain mist and cold river water behind the moment.",
     "tags": [
+      "highlight",
       "landscape",
       "waterfall"
     ],
-    "featured": false,
+    "featured": true,
     "sourceName": "IMG_0634.HEIC",
     "src": "media/optimized/img-0634.jpg",
     "thumb": "media/thumbs/img-0634.jpg",
@@ -2375,11 +2375,10 @@ window.BANFF_PHOTOS = [
     "location": "Wapta Falls, Takakkaw Falls & Final Exploring",
     "caption": "Waterfall stops and final scenic exploring in the Canadian Rockies.",
     "tags": [
-      "highlight",
       "landscape",
       "waterfall"
     ],
-    "featured": true,
+    "featured": false,
     "sourceName": "IMG_0665.HEIC",
     "src": "media/optimized/img-0665.jpg",
     "thumb": "media/thumbs/img-0665.jpg",
@@ -2473,15 +2472,17 @@ window.BANFF_PHOTOS = [
   },
   {
     "id": "img-0674",
-    "title": "Waterfall Day 18",
+    "title": "Final Lake View",
     "day": "Day 5",
     "location": "Wapta Falls, Takakkaw Falls & Final Exploring",
-    "caption": "Waterfall stops and final scenic exploring in the Canadian Rockies.",
+    "caption": "One last turquoise lake view from the final exploring day in the Rockies.",
     "tags": [
+      "highlight",
+      "lake",
       "landscape",
       "waterfall"
     ],
-    "featured": false,
+    "featured": true,
     "sourceName": "IMG_0674.HEIC",
     "src": "media/optimized/img-0674.jpg",
     "thumb": "media/thumbs/img-0674.jpg",
@@ -2496,8 +2497,7 @@ window.BANFF_PHOTOS = [
     "externalUrl": "https://photos.app.goo.gl/TDwcVwiQXMaVxXPSA",
     "caption": "The full Google Photos archive for the trip.",
     "tags": [
-      "video",
-      "highlight"
+      "video"
     ],
     "featured": false,
     "type": "video"
