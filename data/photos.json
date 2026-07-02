@@ -1,0 +1,109 @@
+[
+  {
+    "id": "moraine-lake-01",
+    "title": "Moraine Lake Morning",
+    "day": "Day 2",
+    "location": "Moraine Lake",
+    "src": "media/optimized/moraine-lake-01.jpg",
+    "thumb": "media/thumbs/moraine-lake-01.jpg",
+    "caption": "Early morning views at Moraine Lake.",
+    "tags": ["lake", "mountains", "highlight"],
+    "featured": true,
+    "type": "image"
+  },
+  {
+    "id": "lake-louise-01",
+    "title": "Lake Louise Shoreline",
+    "day": "Day 2",
+    "location": "Lake Louise",
+    "src": "media/optimized/lake-louise-01.jpg",
+    "thumb": "media/thumbs/lake-louise-01.jpg",
+    "caption": "Glacier water and classic Lake Louise views.",
+    "tags": ["lake", "landscape", "highlight"],
+    "featured": true,
+    "type": "image"
+  },
+  {
+    "id": "banff-gondola-01",
+    "title": "Sulphur Mountain Lookout",
+    "day": "Day 3",
+    "location": "Banff Gondola",
+    "src": "media/optimized/banff-gondola-01.jpg",
+    "thumb": "media/thumbs/banff-gondola-01.jpg",
+    "caption": "Views from the boardwalk above Banff.",
+    "tags": ["landscape", "mountains"],
+    "featured": true,
+    "type": "image"
+  },
+  {
+    "id": "johnston-canyon-01",
+    "title": "Johnston Canyon Falls",
+    "day": "Day 3",
+    "location": "Johnston Canyon",
+    "src": "media/optimized/johnston-canyon-01.jpg",
+    "thumb": "media/thumbs/johnston-canyon-01.jpg",
+    "caption": "Mist, canyon walls, and waterfall trails.",
+    "tags": ["waterfall", "landscape"],
+    "featured": false,
+    "type": "image"
+  },
+  {
+    "id": "canmore-town-01",
+    "title": "Canmore Evening",
+    "day": "Day 3",
+    "location": "Canmore",
+    "src": "media/optimized/canmore-town-01.jpg",
+    "thumb": "media/thumbs/canmore-town-01.jpg",
+    "caption": "A relaxed mountain town stop after a full day out.",
+    "tags": ["town", "food", "family"],
+    "featured": false,
+    "type": "image"
+  },
+  {
+    "id": "yoho-park-01",
+    "title": "Yoho Valley Views",
+    "day": "Day 4",
+    "location": "Yoho National Park",
+    "src": "media/optimized/yoho-park-01.jpg",
+    "thumb": "media/thumbs/yoho-park-01.jpg",
+    "caption": "A scenic day across the British Columbia side of the Rockies.",
+    "tags": ["landscape", "mountains"],
+    "featured": false,
+    "type": "image"
+  },
+  {
+    "id": "wapta-falls-01",
+    "title": "Wapta Falls Trail",
+    "day": "Day 5",
+    "location": "Wapta Falls",
+    "src": "media/optimized/wapta-falls-01.jpg",
+    "thumb": "media/thumbs/wapta-falls-01.jpg",
+    "caption": "A big waterfall finish for the final exploring day.",
+    "tags": ["waterfall", "highlight"],
+    "featured": true,
+    "type": "image"
+  },
+  {
+    "id": "takakkaw-falls-01",
+    "title": "Takakkaw Falls",
+    "day": "Day 5",
+    "location": "Takakkaw Falls",
+    "src": "media/optimized/takakkaw-falls-01.jpg",
+    "thumb": "media/thumbs/takakkaw-falls-01.jpg",
+    "caption": "Standing near one of Yoho's most dramatic falls.",
+    "tags": ["waterfall", "landscape"],
+    "featured": false,
+    "type": "image"
+  },
+  {
+    "id": "full-trip-album",
+    "title": "Full Trip Album",
+    "day": "All Days",
+    "location": "Google Photos",
+    "externalUrl": "https://photos.app.goo.gl/TDwcVwiQXMaVxXPSA",
+    "caption": "The full Google Photos archive for the trip.",
+    "tags": ["video", "highlight"],
+    "featured": false,
+    "type": "video"
+  }
+]

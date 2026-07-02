@@ -1,0 +1,18 @@
+media/raw/
+
+# Keep original camera/video files out of the repo by default.
+*.HEIC
+*.heic
+*.MOV
+*.mov
+*.MP4
+*.mp4
+
+# Selected clips are allowed when intentionally placed here.
+!media/videos/
+!media/videos/**
+
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
