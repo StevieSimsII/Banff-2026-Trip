@@ -12,10 +12,13 @@ assets/styles.css
 assets/app.js
 assets/photo-data.js
 data/photos.json
+data/trails.json
 media/optimized/
 media/thumbs/
 media/videos/
+trails/gpx/
 scripts/process_media.py
+scripts/sync_trails.py
 ```
 
 ## Local Preview
@@ -91,6 +94,30 @@ Selected MP4 or MOV files can be placed in `media/raw/` and processed into
   "type": "video"
 }
 ```
+
+## Adding onX Trails
+
+Choose `GPX` when exporting from onX. GPX is best for this site because it is
+track-native and easy for the page to parse into route previews, distance,
+elevation gain, and duration. KML is still useful for Google Earth-style display,
+but it is not the best primary format for the website.
+
+1. Export the onX tracks as GPX.
+2. Save the GPX export in `trails/gpx/`.
+3. Edit `data/trails.json`.
+4. Set `gpx` to the exported file path.
+5. If one GPX contains multiple tracks, set `trackName` to the exact onX track
+   name for each trail card.
+6. Run the sync script:
+
+```bash
+python scripts/sync_trails.py
+```
+
+The sync script refreshes `assets/trail-data.js` so the Trail Logs section can
+still load metadata when `index.html` is opened directly. To see the actual GPX
+route lines locally, use the local server preview because browser security can
+block direct file reads from `index.html`.
 
 ## Editing Captions
 

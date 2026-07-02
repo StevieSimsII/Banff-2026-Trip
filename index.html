@@ -19,6 +19,7 @@
       </a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="#story">Story</a>
+        <a href="#trails">Trails</a>
         <a href="#gallery">Gallery</a>
         <a href="#maps">Maps</a>
         <a href="#videos">Videos</a>
@@ -39,6 +40,7 @@
           <p class="hero-subtitle">A Canadian Rockies photo journal</p>
           <div class="hero-actions" aria-label="Primary links">
             <a class="button button-primary" href="#featured">Favorite Moments</a>
+            <a class="button button-secondary" href="#trails">Trail Logs</a>
             <a class="button button-secondary" href="#album">Full Album</a>
           </div>
         </div>
@@ -96,6 +98,22 @@
               <p>Packing up the memories, swapping favorite photos, and heading home from the Rockies.</p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section class="section trails-section" id="trails" aria-labelledby="trails-title">
+        <div class="section-inner">
+          <div class="section-heading trails-heading">
+            <div>
+              <p class="eyebrow">OnX Tracks</p>
+              <h2 id="trails-title">Trail Logs</h2>
+            </div>
+            <p>
+              The walking lines behind the photos: lake approaches, canyon paths,
+              overlooks, waterfall stops, and the little routes that made the trip.
+            </p>
+          </div>
+          <div class="trail-grid" id="trailGrid" aria-live="polite"></div>
         </div>
       </section>
 
@@ -213,5 +231,7 @@
 
     <script src="assets/photo-data.js" defer></script>
     <script src="assets/app.js" defer></script>
+    <script src="assets/trail-data.js" defer></script>
+    <script src="assets/trails.js" defer></script>
   </body>
 </html>
