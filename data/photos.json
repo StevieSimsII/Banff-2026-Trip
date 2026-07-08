@@ -13,19 +13,6 @@
     "role": "opener"
   },
   {
-    "id": "img-0456",
-    "type": "image",
-    "day": 1,
-    "stop": "Banff Avenue",
-    "capturedAt": "2026-06-24 20:24:44",
-    "src": "media/optimized/img-0456.jpg",
-    "thumb": "media/thumbs/img-0456.jpg",
-    "caption": "First evening on Banff Avenue, Cascade Mountain closing out the street.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
     "id": "img-0457",
     "type": "image",
     "day": 1,
@@ -39,19 +26,6 @@
     "role": null
   },
   {
-    "id": "img-0459",
-    "type": "image",
-    "day": 1,
-    "stop": "Banff Avenue",
-    "capturedAt": "2026-06-24 20:25:49",
-    "src": "media/optimized/img-0459.jpg",
-    "thumb": "media/thumbs/img-0459.jpg",
-    "caption": "First evening on Banff Avenue, Cascade Mountain closing out the street.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
     "id": "img-0464",
     "type": "image",
     "day": 2,
@@ -59,19 +33,6 @@
     "capturedAt": "2026-06-25 09:29:31",
     "src": "media/optimized/img-0464.jpg",
     "thumb": "media/thumbs/img-0464.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-5882",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 09:35:31",
-    "src": "media/optimized/img-5882.jpg",
-    "thumb": "media/thumbs/img-5882.jpg",
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 2000,
     "h": 1500,
@@ -103,19 +64,6 @@
     "role": "hero"
   },
   {
-    "id": "img-0468",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 09:40:00",
-    "src": "media/optimized/img-0468.jpg",
-    "thumb": "media/thumbs/img-0468.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0470",
     "type": "image",
     "day": 2,
@@ -136,32 +84,6 @@
     "capturedAt": "2026-06-25 09:41:43",
     "src": "media/optimized/img-0471.jpg",
     "thumb": "media/thumbs/img-0471.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0472",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 09:53:46",
-    "src": "media/optimized/img-0472.jpg",
-    "thumb": "media/thumbs/img-0472.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-5895",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 09:59:14",
-    "src": "media/optimized/img-5895.jpg",
-    "thumb": "media/thumbs/img-5895.jpg",
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 1500,
     "h": 2000,
@@ -194,45 +116,6 @@
     "role": null
   },
   {
-    "id": "img-0477",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:03:39",
-    "src": "media/optimized/img-0477.jpg",
-    "thumb": "media/thumbs/img-0477.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0478",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:03:42",
-    "src": "media/optimized/img-0478.jpg",
-    "thumb": "media/thumbs/img-0478.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0479",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:03:43",
-    "src": "media/optimized/img-0479.jpg",
-    "thumb": "media/thumbs/img-0479.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
     "id": "img-0480",
     "type": "image",
     "day": 2,
@@ -240,19 +123,6 @@
     "capturedAt": "2026-06-25 10:03:52",
     "src": "media/optimized/img-0480.jpg",
     "thumb": "media/thumbs/img-0480.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0481",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:03:55",
-    "src": "media/optimized/img-0481.jpg",
-    "thumb": "media/thumbs/img-0481.jpg",
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 2000,
     "h": 1500,
@@ -337,19 +207,6 @@
     "role": null
   },
   {
-    "id": "img-5918",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:28:13",
-    "src": "media/optimized/img-5918.jpg",
-    "thumb": "media/thumbs/img-5918.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0485",
     "type": "image",
     "day": 2,
@@ -360,32 +217,6 @@
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 1500,
     "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0486",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:37:29",
-    "src": "media/optimized/img-0486.jpg",
-    "thumb": "media/thumbs/img-0486.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0487",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:40:32",
-    "src": "media/optimized/img-0487.jpg",
-    "thumb": "media/thumbs/img-0487.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
     "role": null
   },
   {
@@ -409,19 +240,6 @@
     "capturedAt": "2026-06-25 10:44:05",
     "src": "media/optimized/img-0491.jpg",
     "thumb": "media/thumbs/img-0491.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0492",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:44:29",
-    "src": "media/optimized/img-0492.jpg",
-    "thumb": "media/thumbs/img-0492.jpg",
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 2000,
     "h": 1500,
@@ -461,19 +279,6 @@
     "capturedAt": "2026-06-25 10:49:00",
     "src": "media/optimized/img-5930.jpg",
     "thumb": "media/thumbs/img-5930.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-5936",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 11:03:08",
-    "src": "media/optimized/img-5936.jpg",
-    "thumb": "media/thumbs/img-5936.jpg",
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 2000,
     "h": 1500,
@@ -544,19 +349,6 @@
     "role": null
   },
   {
-    "id": "img-0503",
-    "type": "image",
-    "day": 2,
-    "stop": "Lake Agnes Trail & Tea House",
-    "capturedAt": "2026-06-25 14:37:59",
-    "src": "media/optimized/img-0503.jpg",
-    "thumb": "media/thumbs/img-0503.jpg",
-    "caption": "On the climb to Lake Agnes \u2014 switchbacks, spruce forest, and teahouse views.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0504",
     "type": "image",
     "day": 2,
@@ -577,32 +369,6 @@
     "capturedAt": "2026-06-25 14:40:48",
     "src": "media/optimized/img-0505.jpg",
     "thumb": "media/thumbs/img-0505.jpg",
-    "caption": "On the climb to Lake Agnes \u2014 switchbacks, spruce forest, and teahouse views.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0506",
-    "type": "image",
-    "day": 2,
-    "stop": "Lake Agnes Trail & Tea House",
-    "capturedAt": "2026-06-25 14:44:27",
-    "src": "media/optimized/img-0506.jpg",
-    "thumb": "media/thumbs/img-0506.jpg",
-    "caption": "On the climb to Lake Agnes \u2014 switchbacks, spruce forest, and teahouse views.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0507",
-    "type": "image",
-    "day": 2,
-    "stop": "Lake Agnes Trail & Tea House",
-    "capturedAt": "2026-06-25 14:44:30",
-    "src": "media/optimized/img-0507.jpg",
-    "thumb": "media/thumbs/img-0507.jpg",
     "caption": "On the climb to Lake Agnes \u2014 switchbacks, spruce forest, and teahouse views.",
     "w": 2000,
     "h": 1500,
@@ -644,19 +410,6 @@
     "caption": "On the climb to Lake Agnes \u2014 switchbacks, spruce forest, and teahouse views.",
     "w": 2000,
     "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-5964",
-    "type": "image",
-    "day": 2,
-    "stop": "Lake Agnes Trail & Tea House",
-    "capturedAt": "2026-06-25 15:52:46",
-    "src": "media/optimized/img-5964.jpg",
-    "thumb": "media/thumbs/img-5964.jpg",
-    "caption": "On the climb to Lake Agnes \u2014 switchbacks, spruce forest, and teahouse views.",
-    "w": 2000,
-    "h": 914,
     "role": null
   },
   {
@@ -711,19 +464,6 @@
     "role": null
   },
   {
-    "id": "img-0520",
-    "type": "image",
-    "day": 2,
-    "stop": "Lake Louise",
-    "capturedAt": "2026-06-25 16:57:28",
-    "src": "media/optimized/img-0520.jpg",
-    "thumb": "media/thumbs/img-0520.jpg",
-    "caption": "Late-day light over Lake Louise.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0521",
     "type": "image",
     "day": 2,
@@ -731,19 +471,6 @@
     "capturedAt": "2026-06-25 16:57:30",
     "src": "media/optimized/img-0521.jpg",
     "thumb": "media/thumbs/img-0521.jpg",
-    "caption": "Late-day light over Lake Louise.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0523",
-    "type": "image",
-    "day": 2,
-    "stop": "Lake Louise",
-    "capturedAt": "2026-06-25 17:02:39",
-    "src": "media/optimized/img-0523.jpg",
-    "thumb": "media/thumbs/img-0523.jpg",
     "caption": "Late-day light over Lake Louise.",
     "w": 2000,
     "h": 1500,
@@ -802,19 +529,6 @@
     "role": "finale"
   },
   {
-    "id": "img-0538",
-    "type": "image",
-    "day": 3,
-    "stop": "Bow Lake",
-    "capturedAt": "2026-06-26 10:31:30",
-    "src": "media/optimized/img-0538.jpg",
-    "thumb": "media/thumbs/img-0538.jpg",
-    "caption": "Bow Lake, mirror-still under Crowfoot Mountain.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0539",
     "type": "image",
     "day": 3,
@@ -835,19 +549,6 @@
     "capturedAt": "2026-06-26 10:32:36",
     "src": "media/optimized/img-0541.jpg",
     "thumb": "media/thumbs/img-0541.jpg",
-    "caption": "Bow Lake, mirror-still under Crowfoot Mountain.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0543",
-    "type": "image",
-    "day": 3,
-    "stop": "Bow Lake",
-    "capturedAt": "2026-06-26 10:32:43",
-    "src": "media/optimized/img-0543.jpg",
-    "thumb": "media/thumbs/img-0543.jpg",
     "caption": "Bow Lake, mirror-still under Crowfoot Mountain.",
     "w": 2000,
     "h": 1500,
@@ -879,19 +580,6 @@
     "role": null
   },
   {
-    "id": "img-0546",
-    "type": "image",
-    "day": 3,
-    "stop": "Bow Lake",
-    "capturedAt": "2026-06-26 10:36:20",
-    "src": "media/optimized/img-0546.jpg",
-    "thumb": "media/thumbs/img-0546.jpg",
-    "caption": "Bow Lake, mirror-still under Crowfoot Mountain.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0548",
     "type": "video",
     "day": 3,
@@ -915,19 +603,6 @@
     "w": 2000,
     "h": 1500,
     "role": "opener"
-  },
-  {
-    "id": "img-0551",
-    "type": "image",
-    "day": 3,
-    "stop": "Peyto Lake Overlook",
-    "capturedAt": "2026-06-26 11:10:15",
-    "src": "media/optimized/img-0551.jpg",
-    "thumb": "media/thumbs/img-0551.jpg",
-    "caption": "The Peyto Lake overlook \u2014 the bluest water of the whole trip.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
   },
   {
     "id": "img-0552",
@@ -981,19 +656,6 @@
     "role": null
   },
   {
-    "id": "img-0558",
-    "type": "image",
-    "day": 3,
-    "stop": "Icefields Parkway",
-    "capturedAt": "2026-06-26 16:33:46",
-    "src": "media/optimized/img-0558.jpg",
-    "thumb": "media/thumbs/img-0558.jpg",
-    "caption": "Pull-off along the Icefields Parkway, glaciers on the Divide.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0559",
     "type": "image",
     "day": 3,
@@ -1033,32 +695,6 @@
     "role": null
   },
   {
-    "id": "img-0565",
-    "type": "image",
-    "day": 3,
-    "stop": "Mistaya Canyon",
-    "capturedAt": "2026-06-26 17:41:49",
-    "src": "media/optimized/img-0565.jpg",
-    "thumb": "media/thumbs/img-0565.jpg",
-    "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0566",
-    "type": "image",
-    "day": 3,
-    "stop": "Mistaya Canyon",
-    "capturedAt": "2026-06-26 17:41:56",
-    "src": "media/optimized/img-0566.jpg",
-    "thumb": "media/thumbs/img-0566.jpg",
-    "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0570",
     "type": "video",
     "day": 3,
@@ -1091,19 +727,6 @@
     "capturedAt": "2026-06-26 17:50:32",
     "src": "media/optimized/img-0577.jpg",
     "thumb": "media/thumbs/img-0577.jpg",
-    "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0578",
-    "type": "image",
-    "day": 3,
-    "stop": "Mistaya Canyon",
-    "capturedAt": "2026-06-26 17:50:33",
-    "src": "media/optimized/img-0578.jpg",
-    "thumb": "media/thumbs/img-0578.jpg",
     "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
     "w": 2000,
     "h": 1500,
@@ -1238,45 +861,6 @@
     "role": null
   },
   {
-    "id": "img-0619",
-    "type": "image",
-    "day": 4,
-    "stop": "Ink Pots",
-    "capturedAt": "2026-06-27 10:31:05",
-    "src": "media/optimized/img-0619.jpg",
-    "thumb": "media/thumbs/img-0619.jpg",
-    "caption": "The Ink Pots meadow \u2014 cold mineral springs bubbling jade and blue.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0620",
-    "type": "image",
-    "day": 4,
-    "stop": "Ink Pots",
-    "capturedAt": "2026-06-27 10:31:07",
-    "src": "media/optimized/img-0620.jpg",
-    "thumb": "media/thumbs/img-0620.jpg",
-    "caption": "The Ink Pots meadow \u2014 cold mineral springs bubbling jade and blue.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0623",
-    "type": "image",
-    "day": 4,
-    "stop": "Ink Pots",
-    "capturedAt": "2026-06-27 10:37:49",
-    "src": "media/optimized/img-0623.jpg",
-    "thumb": "media/thumbs/img-0623.jpg",
-    "caption": "The Ink Pots meadow \u2014 cold mineral springs bubbling jade and blue.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0624",
     "type": "image",
     "day": 4,
@@ -1303,19 +887,6 @@
     "role": null
   },
   {
-    "id": "img-0627",
-    "type": "image",
-    "day": 4,
-    "stop": "Canmore",
-    "capturedAt": "2026-06-27 17:04:16",
-    "src": "media/optimized/img-0627.jpg",
-    "thumb": "media/thumbs/img-0627.jpg",
-    "caption": "Golden hour above Canmore.",
-    "w": 2000,
-    "h": 1387,
-    "role": null
-  },
-  {
     "id": "img-0628",
     "type": "image",
     "day": 4,
@@ -1327,19 +898,6 @@
     "w": 2000,
     "h": 1260,
     "role": "opener"
-  },
-  {
-    "id": "img-0629",
-    "type": "image",
-    "day": 4,
-    "stop": "Canmore",
-    "capturedAt": "2026-06-27 17:20:35",
-    "src": "media/optimized/img-0629.jpg",
-    "thumb": "media/thumbs/img-0629.jpg",
-    "caption": "Golden hour above Canmore.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
   },
   {
     "id": "img-0630",
@@ -1368,19 +926,6 @@
     "role": null
   },
   {
-    "id": "img-0632",
-    "type": "image",
-    "day": 4,
-    "stop": "Canmore",
-    "capturedAt": "2026-06-27 17:23:16",
-    "src": "media/optimized/img-0632.jpg",
-    "thumb": "media/thumbs/img-0632.jpg",
-    "caption": "Golden hour above Canmore.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0633",
     "type": "image",
     "day": 4,
@@ -1388,32 +933,6 @@
     "capturedAt": "2026-06-27 17:24:30",
     "src": "media/optimized/img-0633.jpg",
     "thumb": "media/thumbs/img-0633.jpg",
-    "caption": "Golden hour above Canmore.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0635",
-    "type": "image",
-    "day": 4,
-    "stop": "Canmore",
-    "capturedAt": "2026-06-27 17:29:03",
-    "src": "media/optimized/img-0635.jpg",
-    "thumb": "media/thumbs/img-0635.jpg",
-    "caption": "Golden hour above Canmore.",
-    "w": 2000,
-    "h": 1362,
-    "role": null
-  },
-  {
-    "id": "img-0636",
-    "type": "image",
-    "day": 4,
-    "stop": "Canmore",
-    "capturedAt": "2026-06-27 17:29:07",
-    "src": "media/optimized/img-0636.jpg",
-    "thumb": "media/thumbs/img-0636.jpg",
     "caption": "Golden hour above Canmore.",
     "w": 2000,
     "h": 1500,
@@ -1456,19 +975,6 @@
     "caption": "The Kicking Horse River punching through the Natural Bridge.",
     "w": 1500,
     "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0647",
-    "type": "image",
-    "day": 5,
-    "stop": "Natural Bridge",
-    "capturedAt": "2026-06-28 11:52:44",
-    "src": "media/optimized/img-0647.jpg",
-    "thumb": "media/thumbs/img-0647.jpg",
-    "caption": "The Kicking Horse River punching through the Natural Bridge.",
-    "w": 2000,
-    "h": 1500,
     "role": null
   },
   {
@@ -1556,19 +1062,6 @@
     "capturedAt": "2026-06-28 16:09:38",
     "src": "media/optimized/img-0664.jpg",
     "thumb": "media/thumbs/img-0664.jpg",
-    "caption": "Takakkaw Falls, glacier meltwater free-falling 254 metres.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0665",
-    "type": "image",
-    "day": 5,
-    "stop": "Takakkaw Falls",
-    "capturedAt": "2026-06-28 16:12:02",
-    "src": "media/optimized/img-0665.jpg",
-    "thumb": "media/thumbs/img-0665.jpg",
     "caption": "Takakkaw Falls, glacier meltwater free-falling 254 metres.",
     "w": 2000,
     "h": 1500,
