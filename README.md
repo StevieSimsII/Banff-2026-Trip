@@ -9,6 +9,45 @@ justified photo galleries with lightbox, inline films, and for every hike an
 interactive topo map (Leaflet + onX GPS tracks) with an animated, hover-synced
 elevation profile.
 
+## Built with Claude Fable 5
+
+This site was co-created with [Claude Fable 5](https://www.anthropic.com/news/claude-fable-5-mythos-5),
+Anthropic's frontier model, working in Cowork mode on a folder of raw trip
+files: ~150 iPhone photos, 12 MOV clips, and a single onX Backcountry GPX
+export. From that starting point, the model handled the full pipeline:
+
+**Photo curation.** Fable 5 wrote and ran a perceptual-hash (dHash) +
+Laplacian-sharpness pipeline to find burst shots and retakes, then *visually
+reviewed* every candidate group on contact sheets before acting — catching two
+false positives the algorithm wanted to delete (a distinct landscape
+composition and a posed portrait). 42 near-duplicates were archived, keeping
+the sharpest frame of each; 114 photos remain.
+
+**Metadata forensics.** The original day labels were wrong — "Banff Gondola"
+day was actually the Icefields Parkway. Fable 5 cross-referenced photo EXIF
+timestamps against GPX trackpoint times (correcting UTC to Mountain time),
+confirmed the fix by inspecting the photos themselves, and rebuilt every
+day/location/caption assignment from ground truth.
+
+**Hiking data.** It parsed 2,800+ GPX trackpoints into per-hike distance,
+smoothed elevation gain, and downsampled profiles; merged out-and-back track
+pairs into single hikes; and — noticing the onX timestamps implied impossible
+hiking speeds — chose to omit pace/duration rather than publish bad numbers.
+
+**Media engineering.** All 12 HEVC MOV clips were re-encoded to web-playable
+H.264 MP4 with poster frames, and the git strategy keeps originals local while
+shipping only optimized derivatives.
+
+**The site itself.** Design and code are Fable 5's: the dark photo-forward
+visual system, the justified-row gallery algorithm, lazy-initialized Leaflet
+minimaps with animated track drawing, SVG elevation profiles that sync a
+marker onto the map as you hover, and the scroll-driven chapter structure.
+Before delivery it smoke-tested its own code headlessly with a stubbed DOM,
+catching and fixing two initialization-order bugs.
+
+Total human input: a folder of files, four multiple-choice answers, and one
+screenshot pointing out leftover duplicates.
+
 ## Structure
 
 ```
