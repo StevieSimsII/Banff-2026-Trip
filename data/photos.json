@@ -298,19 +298,6 @@
     "role": null
   },
   {
-    "id": "img-0531",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 12:00:00",
-    "src": "media/optimized/img-0531.jpg",
-    "thumb": "media/thumbs/img-0531.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1195,
-    "h": 896,
-    "role": null
-  },
-  {
     "id": "img-0501",
     "type": "video",
     "day": 2,
