@@ -78,19 +78,6 @@
     "role": null
   },
   {
-    "id": "img-0465",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 09:35:38",
-    "src": "media/optimized/img-0465.jpg",
-    "thumb": "media/thumbs/img-0465.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0466",
     "type": "video",
     "day": 2,
@@ -126,19 +113,6 @@
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 2000,
     "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0469",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 09:40:05",
-    "src": "media/optimized/img-0469.jpg",
-    "thumb": "media/thumbs/img-0469.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1752,
-    "h": 2000,
     "role": null
   },
   {
@@ -188,32 +162,6 @@
     "capturedAt": "2026-06-25 09:59:14",
     "src": "media/optimized/img-5895.jpg",
     "thumb": "media/thumbs/img-5895.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0473",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:00:55",
-    "src": "media/optimized/img-0473.jpg",
-    "thumb": "media/thumbs/img-0473.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0474",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:00:57",
-    "src": "media/optimized/img-0474.jpg",
-    "thumb": "media/thumbs/img-0474.jpg",
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 1500,
     "h": 2000,
@@ -376,19 +324,6 @@
     "role": null
   },
   {
-    "id": "img-0483",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:25:09",
-    "src": "media/optimized/img-0483.jpg",
-    "thumb": "media/thumbs/img-0483.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
     "id": "img-0484",
     "type": "image",
     "day": 2,
@@ -454,32 +389,6 @@
     "role": null
   },
   {
-    "id": "img-0488",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:40:39",
-    "src": "media/optimized/img-0488.jpg",
-    "thumb": "media/thumbs/img-0488.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
-    "id": "img-0489",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:40:40",
-    "src": "media/optimized/img-0489.jpg",
-    "thumb": "media/thumbs/img-0489.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
-  },
-  {
     "id": "img-0490",
     "type": "image",
     "day": 2,
@@ -513,19 +422,6 @@
     "capturedAt": "2026-06-25 10:44:29",
     "src": "media/optimized/img-0492.jpg",
     "thumb": "media/thumbs/img-0492.jpg",
-    "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0493",
-    "type": "image",
-    "day": 2,
-    "stop": "Moraine Lake",
-    "capturedAt": "2026-06-25 10:44:31",
-    "src": "media/optimized/img-0493.jpg",
-    "thumb": "media/thumbs/img-0493.jpg",
     "caption": "Morning at Moraine Lake \u2014 glacier flour turning the water turquoise beneath the Ten Peaks.",
     "w": 2000,
     "h": 1500,
@@ -802,19 +698,6 @@
     "role": null
   },
   {
-    "id": "img-0516",
-    "type": "image",
-    "day": 2,
-    "stop": "Lake Louise",
-    "capturedAt": "2026-06-25 16:46:14",
-    "src": "media/optimized/img-0516.jpg",
-    "thumb": "media/thumbs/img-0516.jpg",
-    "caption": "Late-day light over Lake Louise.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0517",
     "type": "image",
     "day": 2,
@@ -958,19 +841,6 @@
     "role": null
   },
   {
-    "id": "img-0542",
-    "type": "image",
-    "day": 3,
-    "stop": "Bow Lake",
-    "capturedAt": "2026-06-26 10:32:39",
-    "src": "media/optimized/img-0542.jpg",
-    "thumb": "media/thumbs/img-0542.jpg",
-    "caption": "Bow Lake, mirror-still under Crowfoot Mountain.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0543",
     "type": "image",
     "day": 3,
@@ -1032,19 +902,6 @@
     "caption": "Panning across Peyto Lake from the overlook.",
     "w": 1920,
     "h": 1080
-  },
-  {
-    "id": "img-0549",
-    "type": "image",
-    "day": 3,
-    "stop": "Peyto Lake Overlook",
-    "capturedAt": "2026-06-26 11:09:30",
-    "src": "media/optimized/img-0549.jpg",
-    "thumb": "media/thumbs/img-0549.jpg",
-    "caption": "The Peyto Lake overlook \u2014 the bluest water of the whole trip.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
   },
   {
     "id": "img-0550",
@@ -1227,71 +1084,6 @@
     "role": null
   },
   {
-    "id": "img-0568",
-    "type": "image",
-    "day": 3,
-    "stop": "Mistaya Canyon",
-    "capturedAt": "2026-06-26 17:42:07",
-    "src": "media/optimized/img-0568.jpg",
-    "thumb": "media/thumbs/img-0568.jpg",
-    "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0569",
-    "type": "image",
-    "day": 3,
-    "stop": "Mistaya Canyon",
-    "capturedAt": "2026-06-26 17:42:11",
-    "src": "media/optimized/img-0569.jpg",
-    "thumb": "media/thumbs/img-0569.jpg",
-    "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0573",
-    "type": "image",
-    "day": 3,
-    "stop": "Mistaya Canyon",
-    "capturedAt": "2026-06-26 17:50:11",
-    "src": "media/optimized/img-0573.jpg",
-    "thumb": "media/thumbs/img-0573.jpg",
-    "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0574",
-    "type": "image",
-    "day": 3,
-    "stop": "Mistaya Canyon",
-    "capturedAt": "2026-06-26 17:50:13",
-    "src": "media/optimized/img-0574.jpg",
-    "thumb": "media/thumbs/img-0574.jpg",
-    "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0576",
-    "type": "image",
-    "day": 3,
-    "stop": "Mistaya Canyon",
-    "capturedAt": "2026-06-26 17:50:30",
-    "src": "media/optimized/img-0576.jpg",
-    "thumb": "media/thumbs/img-0576.jpg",
-    "caption": "Mistaya Canyon, a whole river folded into carved limestone.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0577",
     "type": "image",
     "day": 3,
@@ -1350,19 +1142,6 @@
     "capturedAt": "2026-06-27 08:40:34",
     "src": "media/optimized/img-0602.jpg",
     "thumb": "media/thumbs/img-0602.jpg",
-    "caption": "Steel catwalks over Johnston Creek, spray in the air.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0603",
-    "type": "image",
-    "day": 4,
-    "stop": "Johnston Canyon",
-    "capturedAt": "2026-06-27 08:40:36",
-    "src": "media/optimized/img-0603.jpg",
-    "thumb": "media/thumbs/img-0603.jpg",
     "caption": "Steel catwalks over Johnston Creek, spray in the air.",
     "w": 2000,
     "h": 1500,
@@ -1718,19 +1497,6 @@
     "h": 1080
   },
   {
-    "id": "img-0654",
-    "type": "image",
-    "day": 5,
-    "stop": "Wapta Falls",
-    "capturedAt": "2026-06-28 14:30:04",
-    "src": "media/optimized/img-0654.jpg",
-    "thumb": "media/thumbs/img-0654.jpg",
-    "caption": "Wapta Falls \u2014 Yoho's widest curtain of water.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0655",
     "type": "image",
     "day": 5,
@@ -1809,19 +1575,6 @@
     "role": null
   },
   {
-    "id": "img-0666",
-    "type": "image",
-    "day": 5,
-    "stop": "Takakkaw Falls",
-    "capturedAt": "2026-06-28 16:12:07",
-    "src": "media/optimized/img-0666.jpg",
-    "thumb": "media/thumbs/img-0666.jpg",
-    "caption": "Takakkaw Falls, glacier meltwater free-falling 254 metres.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
     "id": "img-0667",
     "type": "image",
     "day": 5,
@@ -1829,19 +1582,6 @@
     "capturedAt": "2026-06-28 16:12:10",
     "src": "media/optimized/img-0667.jpg",
     "thumb": "media/thumbs/img-0667.jpg",
-    "caption": "Takakkaw Falls, glacier meltwater free-falling 254 metres.",
-    "w": 2000,
-    "h": 1500,
-    "role": null
-  },
-  {
-    "id": "img-0671",
-    "type": "image",
-    "day": 5,
-    "stop": "Takakkaw Falls",
-    "capturedAt": "2026-06-28 16:20:54",
-    "src": "media/optimized/img-0671.jpg",
-    "thumb": "media/thumbs/img-0671.jpg",
     "caption": "Takakkaw Falls, glacier meltwater free-falling 254 metres.",
     "w": 2000,
     "h": 1500,
@@ -1859,19 +1599,6 @@
     "w": 2000,
     "h": 1500,
     "role": "opener"
-  },
-  {
-    "id": "img-0673",
-    "type": "image",
-    "day": 5,
-    "stop": "Takakkaw Falls",
-    "capturedAt": "2026-06-28 16:21:06",
-    "src": "media/optimized/img-0673.jpg",
-    "thumb": "media/thumbs/img-0673.jpg",
-    "caption": "Takakkaw Falls, glacier meltwater free-falling 254 metres.",
-    "w": 1500,
-    "h": 2000,
-    "role": null
   },
   {
     "id": "img-0674",

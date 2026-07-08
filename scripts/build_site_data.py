@@ -209,8 +209,7 @@ for p in photos:
             'caption': cap, 'w': 1920, 'h': 1080,
         })
         continue
-    m = re.match(r'Day (\d)', p['day'])
-    day = int(m.group(1))
+    day = p['day'] if isinstance(p['day'], int) else int(re.match(r'Day (\d)', p['day']).group(1))
     t = p.get('capturedAt', '')
     hhmm = t[11:16] if len(t) >= 16 else '12:00'
     stop = STOPS[day][-1][1]
