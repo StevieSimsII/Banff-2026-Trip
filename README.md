@@ -1,157 +1,51 @@
-# Banff 2026 Trip Website
+# Banff & Yoho — June 2026
 
-A polished static travel scrapbook for the June 24-29, 2026 Banff and Canadian
-Rockies trip. The site is built with plain HTML, CSS, and JavaScript so it can
-run directly on GitHub Pages.
+A cinematic, scrollytelling photo journal of five days in the Canadian Rockies,
+built as a static site for GitHub Pages. No build step, no framework — open
+`index.html` or push to Pages and it works.
 
-## Project Structure
+**Live experience:** full-bleed hero, day-by-day chapters with parallax openers,
+justified photo galleries with lightbox, inline films, and for every hike an
+interactive topo map (Leaflet + onX GPS tracks) with an animated, hover-synced
+elevation profile.
 
-```text
-index.html
-assets/styles.css
-assets/app.js
-assets/photo-data.js
-data/photos.json
-data/trails.json
-media/optimized/
-media/thumbs/
-media/videos/
-trails/gpx/
-scripts/process_media.py
-scripts/sync_trails.py
+## Structure
+
+```
+index.html              page shell
+assets/
+  styles.css            all styling (dark, photo-forward)
+  app.js                scrollytelling engine (vanilla JS + Leaflet)
+  site-data.js          generated — all photos, videos, days, hike stats
+data/
+  photos.json           canonical media metadata (generated)
+  trails.json           canonical hike stats (generated)
+media/
+  optimized/            web-size photos (site uses these)
+  thumbs/               gallery thumbnails
+  video-web/            H.264 MP4s (site uses these)
+  video-posters/        poster frames
+  raw/, videos/         originals — local only, git-ignored
+  archive/              near-duplicate photos removed from the site — local only
+trails/gpx/             onX GPX export (13 tracks)
+scripts/
+  build_site_data.py    regenerates site-data.js / photos.json / trails.json
+  process_media.py      photo import & resize pipeline
 ```
 
-## Local Preview
+## Regenerating data
 
-Open `index.html` in a browser. The page includes graceful placeholders, so it
-works before real images are added.
+After adding media or editing captions/day metadata (edit the constants at the
+top of the script):
 
-For the closest match to GitHub Pages behavior, you can also run a simple local
-server:
-
-```bash
-python -m http.server 8000
+```
+python3 scripts/build_site_data.py
 ```
 
-Then open `http://localhost:8000`.
+## Notes
 
-## Recommended Photo Workflow
-
-1. Keep full originals in Google Photos.
-2. Put only selected website-ready photos into this repo.
-3. Use compressed images and thumbnails for the website.
-4. Link to the full Google Photos album for the full archive.
-
-The full album button already points to:
-
-```text
-https://photos.app.goo.gl/TDwcVwiQXMaVxXPSA
-```
-
-## Adding Photos
-
-1. Create a `media/raw/` folder.
-2. Add selected JPG, JPEG, PNG, or HEIC files to `media/raw/`.
-3. Run the processing script:
-
-```bash
-python scripts/process_media.py
-```
-
-The script creates optimized images in `media/optimized/`, thumbnails in
-`media/thumbs/`, updates `data/photos.json`, and refreshes
-`assets/photo-data.js` so the real gallery can still load when `index.html` is
-opened directly from your computer.
-
-HEIC files are supported when the optional dependency is installed:
-
-```bash
-python -m pip install pillow-heif
-```
-
-The main image processing dependency is Pillow:
-
-```bash
-python -m pip install Pillow
-```
-
-## Adding Videos
-
-Selected MP4 or MOV files can be placed in `media/raw/` and processed into
-`media/videos/` by the script. You can also add external video links in
-`data/photos.json` with this shape:
-
-```json
-{
-  "id": "gondola-video-01",
-  "title": "Banff Gondola Clip",
-  "day": "Day 3",
-  "location": "Banff Gondola",
-  "externalUrl": "https://example.com/video",
-  "caption": "A short clip from the top of Sulphur Mountain.",
-  "tags": ["video", "highlight"],
-  "featured": false,
-  "type": "video"
-}
-```
-
-## Adding onX Trails
-
-Choose `GPX` when exporting from onX. GPX is best for this site because it is
-track-native and easy for the page to parse into route previews, distance,
-elevation gain, and duration. KML is still useful for Google Earth-style display,
-but it is not the best primary format for the website.
-
-1. Export the onX tracks as GPX.
-2. Save the GPX export in `trails/gpx/`.
-3. Edit `data/trails.json`.
-4. Set `gpx` to the exported file path.
-5. If one GPX contains multiple tracks, set `trackName` to the exact onX track
-   name for each trail card.
-6. Run the sync script:
-
-```bash
-python scripts/sync_trails.py
-```
-
-The sync script refreshes `assets/trail-data.js` so the Trail Logs section can
-still load metadata when `index.html` is opened directly. To see the actual GPX
-route lines locally, use the local server preview because browser security can
-block direct file reads from `index.html`.
-
-## Editing Captions
-
-Open `data/photos.json` and edit:
-
-- `title`
-- `day`
-- `location`
-- `caption`
-- `tags`
-- `featured`
-
-Set `"featured": true` for photos that should appear in the Featured Moments
-section.
-
-Supported tags include:
-
-```text
-highlight, family, landscape, waterfall, lake, town, food, video
-```
-
-## Publishing With GitHub Pages
-
-1. Push this repo to GitHub.
-2. Open the repository on GitHub.
-3. Go to Settings -> Pages.
-4. Under Build and deployment, choose Deploy from a branch.
-5. Select the `master` branch and `/ (root)`.
-6. Save.
-
-GitHub will publish the static site from `index.html`.
-
-## Large File Notes
-
-Do not commit huge raw photos or videos by default. The `.gitignore` file keeps
-`media/raw/`, HEIC originals, MOV files, and MP4 files out of Git unless a
-selected video is intentionally placed in `media/videos/`.
+- Day/location assignments were verified against GPX timestamps (UTC−6).
+- onX "markup" tracks carry sparse timestamps, so pace/duration are not shown;
+  distance, elevation gain and profiles are computed from the trackpoints.
+- Out-and-back pairs (Ink Pots, Wapta Falls) are merged into single hikes.
+- Trip totals: 32.1 km on foot, 1,367 m of climbing, high point 2,128 m.

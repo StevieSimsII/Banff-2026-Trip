@@ -1,435 +1,405 @@
-const FALLBACK_MEDIA = [
-  {
-    id: "moraine-lake-01",
-    title: "Moraine Lake Morning",
-    day: "Day 2",
-    location: "Moraine Lake",
-    src: "media/optimized/moraine-lake-01.jpg",
-    thumb: "media/thumbs/moraine-lake-01.jpg",
-    caption: "Early morning views at Moraine Lake.",
-    tags: ["lake", "mountains", "highlight"],
-    featured: true,
-    type: "image",
-  },
-  {
-    id: "lake-louise-01",
-    title: "Lake Louise Shoreline",
-    day: "Day 2",
-    location: "Lake Louise",
-    src: "media/optimized/lake-louise-01.jpg",
-    thumb: "media/thumbs/lake-louise-01.jpg",
-    caption: "Glacier water and classic Lake Louise views.",
-    tags: ["lake", "landscape", "highlight"],
-    featured: true,
-    type: "image",
-  },
-  {
-    id: "banff-gondola-01",
-    title: "Sulphur Mountain Lookout",
-    day: "Day 3",
-    location: "Banff Gondola",
-    src: "media/optimized/banff-gondola-01.jpg",
-    thumb: "media/thumbs/banff-gondola-01.jpg",
-    caption: "Views from the boardwalk above Banff.",
-    tags: ["landscape", "mountains"],
-    featured: true,
-    type: "image",
-  },
-  {
-    id: "johnston-canyon-01",
-    title: "Johnston Canyon Falls",
-    day: "Day 3",
-    location: "Johnston Canyon",
-    src: "media/optimized/johnston-canyon-01.jpg",
-    thumb: "media/thumbs/johnston-canyon-01.jpg",
-    caption: "Mist, canyon walls, and waterfall trails.",
-    tags: ["waterfall", "landscape"],
-    featured: false,
-    type: "image",
-  },
-  {
-    id: "canmore-town-01",
-    title: "Canmore Evening",
-    day: "Day 3",
-    location: "Canmore",
-    src: "media/optimized/canmore-town-01.jpg",
-    thumb: "media/thumbs/canmore-town-01.jpg",
-    caption: "A relaxed mountain town stop after a full day out.",
-    tags: ["town", "food", "family"],
-    featured: false,
-    type: "image",
-  },
-  {
-    id: "yoho-park-01",
-    title: "Yoho Valley Views",
-    day: "Day 4",
-    location: "Yoho National Park",
-    src: "media/optimized/yoho-park-01.jpg",
-    thumb: "media/thumbs/yoho-park-01.jpg",
-    caption: "A scenic day across the British Columbia side of the Rockies.",
-    tags: ["landscape", "mountains"],
-    featured: false,
-    type: "image",
-  },
-  {
-    id: "wapta-falls-01",
-    title: "Wapta Falls Trail",
-    day: "Day 5",
-    location: "Wapta Falls",
-    src: "media/optimized/wapta-falls-01.jpg",
-    thumb: "media/thumbs/wapta-falls-01.jpg",
-    caption: "A big waterfall finish for the final exploring day.",
-    tags: ["waterfall", "highlight"],
-    featured: true,
-    type: "image",
-  },
-  {
-    id: "takakkaw-falls-01",
-    title: "Takakkaw Falls",
-    day: "Day 5",
-    location: "Takakkaw Falls",
-    src: "media/optimized/takakkaw-falls-01.jpg",
-    thumb: "media/thumbs/takakkaw-falls-01.jpg",
-    caption: "Standing near one of Yoho's most dramatic falls.",
-    tags: ["waterfall", "landscape"],
-    featured: false,
-    type: "image",
-  },
-  {
-    id: "full-trip-album",
-    title: "Full Trip Album",
-    day: "All Days",
-    location: "Google Photos",
-    externalUrl: "https://photos.app.goo.gl/TDwcVwiQXMaVxXPSA",
-    caption: "The full Google Photos archive for the trip.",
-    tags: ["video", "highlight"],
-    featured: false,
-    type: "video",
-  },
-];
+/* Banff & Yoho '26 — cinematic scrollytelling engine */
+(function () {
+  "use strict";
+  const D = window.SITE_DATA;
+  const $ = (s, el) => (el || document).querySelector(s);
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const TAGS = ["highlight", "family", "landscape", "waterfall", "lake", "town", "food", "video"];
-
-const state = {
-  media: [],
-  activeTag: "all",
-};
-
-const featuredGrid = document.querySelector("#featuredGrid");
-const galleryGroups = document.querySelector("#galleryGroups");
-const tagFilter = document.querySelector("#tagFilter");
-const videoGrid = document.querySelector("#videoGrid");
-const lightbox = document.querySelector("#lightbox");
-const lightboxImage = document.querySelector("#lightboxImage");
-const lightboxFallback = document.querySelector("#lightboxFallback");
-const lightboxMeta = document.querySelector("#lightboxMeta");
-const lightboxTitle = document.querySelector("#lightboxTitle");
-const lightboxCaption = document.querySelector("#lightboxCaption");
-const lightboxTags = document.querySelector("#lightboxTags");
-
-async function loadMedia() {
-  if (Array.isArray(window.BANFF_PHOTOS) && window.BANFF_PHOTOS.length) {
-    return window.BANFF_PHOTOS;
-  }
-
-  try {
-    const response = await fetch("data/photos.json", { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`Unable to load photos.json: ${response.status}`);
-    }
-    const media = await response.json();
-    return Array.isArray(media) ? media : FALLBACK_MEDIA;
-  } catch (error) {
-    console.info("Using built-in sample media because photos.json could not be loaded.", error);
-    return FALLBACK_MEDIA;
-  }
-}
-
-function normalizeText(value, fallback = "") {
-  return typeof value === "string" && value.trim() ? value.trim() : fallback;
-}
-
-function normalizeTags(tags) {
-  return Array.isArray(tags)
-    ? tags.map((tag) => String(tag).trim().toLowerCase()).filter(Boolean)
-    : [];
-}
-
-function getImages() {
-  return state.media.filter((item) => (item.type || "image") === "image");
-}
-
-function getVideos() {
-  return state.media.filter((item) => item.type === "video");
-}
-
-function createChip(tag) {
-  const chip = document.createElement("span");
-  chip.className = "chip";
-  chip.textContent = tag;
-  return chip;
-}
-
-function createImageCard(item, options = {}) {
-  const card = document.createElement("article");
-  card.className = "photo-card";
-  card.tabIndex = 0;
-  card.setAttribute("role", "button");
-  card.setAttribute("aria-label", `Open ${normalizeText(item.title, "photo")}`);
-
-  const visual = document.createElement("div");
-  visual.className = "photo-card__visual";
-
-  const image = document.createElement("img");
-  image.loading = "lazy";
-  image.src = item.thumb || item.src || "";
-  image.alt = normalizeText(item.caption, normalizeText(item.title, "Banff trip photo"));
-  image.addEventListener("error", () => {
-    card.classList.add("image-missing");
-    image.remove();
-  });
-
-  const fallback = document.createElement("div");
-  fallback.className = "media-fallback";
-  fallback.textContent = `${normalizeText(item.location, "Banff")} photo placeholder`;
-
-  visual.append(image, fallback);
-
-  const body = document.createElement("div");
-  body.className = "photo-card__body";
-  const title = document.createElement("h3");
-  title.textContent = normalizeText(item.title, "Untitled Moment");
-  const caption = document.createElement("p");
-  caption.textContent = normalizeText(item.caption, "Caption coming soon.");
-
-  const meta = document.createElement("div");
-  meta.className = "photo-meta";
-  meta.append(createChip(normalizeText(item.day, "Trip")));
-  meta.append(createChip(normalizeText(item.location, "Canadian Rockies")));
-
-  if (options.showTags) {
-    normalizeTags(item.tags)
-      .slice(0, 3)
-      .forEach((tag) => meta.append(createChip(tag)));
-  }
-
-  body.append(title, caption, meta);
-  card.append(visual, body);
-
-  card.addEventListener("click", () => openLightbox(item));
-  card.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openLightbox(item);
-    }
-  });
-
-  return card;
-}
-
-function createPlaceholderCard(title, caption) {
-  return createImageCard(
-    {
-      title,
-      day: "Soon",
-      location: "Banff",
-      caption,
-      tags: ["highlight"],
-      type: "image",
+  const TILES = {
+    topo: {
+      url: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+      opts: { maxZoom: 16, attribution: "© OpenStreetMap, SRTM | © OpenTopoMap (CC-BY-SA)" },
     },
-    { showTags: true },
-  );
-}
-
-function renderFeatured() {
-  featuredGrid.innerHTML = "";
-  const featured = getImages().filter((item) => item.featured).slice(0, 6);
-
-  if (!featured.length) {
-    [
-      ["Favorite lake view", "A future hero from Moraine Lake or Lake Louise."],
-      ["Best family moment", "A shared memory from the week in the Rockies."],
-      ["Waterfall stop", "A dramatic canyon or Yoho waterfall photo."],
-    ].forEach(([title, caption]) => featuredGrid.append(createPlaceholderCard(title, caption)));
-    return;
-  }
-
-  featured.forEach((item) => featuredGrid.append(createImageCard(item, { showTags: true })));
-}
-
-function renderTagFilter() {
-  tagFilter.innerHTML = "";
-  ["all", ...TAGS].forEach((tag) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = tag === "all" ? "All" : tag;
-    button.classList.toggle("is-active", state.activeTag === tag);
-    button.addEventListener("click", () => {
-      state.activeTag = tag;
-      renderTagFilter();
-      renderGallery();
-    });
-    tagFilter.append(button);
-  });
-}
-
-function groupImages(images) {
-  return images.reduce((groups, item) => {
-    const day = normalizeText(item.day, "Trip");
-    const location = normalizeText(item.location, "Canadian Rockies");
-    const key = `${day} | ${location}`;
-    if (!groups.has(key)) {
-      groups.set(key, []);
-    }
-    groups.get(key).push(item);
-    return groups;
-  }, new Map());
-}
-
-function renderGallery() {
-  galleryGroups.innerHTML = "";
-  const images = getImages().filter((item) => {
-    if (state.activeTag === "all") {
-      return true;
-    }
-    return normalizeTags(item.tags).includes(state.activeTag);
-  });
-
-  if (!images.length) {
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.textContent = "No photos match this tag yet.";
-    galleryGroups.append(empty);
-    return;
-  }
-
-  groupImages(images).forEach((items, label) => {
-    const group = document.createElement("section");
-    group.className = "gallery-group";
-    const heading = document.createElement("h3");
-    heading.textContent = label;
-    const grid = document.createElement("div");
-    grid.className = "gallery-grid";
-    items.forEach((item) => grid.append(createImageCard(item, { showTags: true })));
-    group.append(heading, grid);
-    galleryGroups.append(group);
-  });
-}
-
-function renderVideos() {
-  videoGrid.innerHTML = "";
-  const videos = getVideos();
-
-  if (!videos.length) {
-    const card = document.createElement("article");
-    card.className = "video-card";
-    card.innerHTML = `
-      <div class="video-card__visual video-missing">
-        <div class="media-fallback">Video placeholder</div>
-      </div>
-      <div class="video-card__body">
-        <h3>Trip clips coming soon</h3>
-        <p>Add selected clips to media/videos or add external video links in data/photos.json.</p>
-      </div>
-    `;
-    videoGrid.append(card);
-    return;
-  }
-
-  videos.forEach((item) => {
-    const card = document.createElement("article");
-    card.className = "video-card";
-
-    const visual = document.createElement("div");
-    visual.className = "video-card__visual";
-
-    if (item.src) {
-      const video = document.createElement("video");
-      video.controls = true;
-      video.preload = "metadata";
-      video.src = item.src;
-      if (item.thumb) {
-        video.poster = item.thumb;
-      }
-      visual.append(video);
-    } else {
-      visual.classList.add("video-missing");
-      const fallback = document.createElement("div");
-      fallback.className = "media-fallback";
-      fallback.textContent = `${normalizeText(item.location, "Trip")} video link`;
-      visual.append(fallback);
-    }
-
-    const body = document.createElement("div");
-    body.className = "video-card__body";
-    const title = document.createElement("h3");
-    title.textContent = normalizeText(item.title, "Trip Video");
-    const caption = document.createElement("p");
-    caption.textContent = normalizeText(item.caption, "Video memory from the Banff trip.");
-    body.append(title, caption);
-
-    if (item.externalUrl) {
-      const link = document.createElement("a");
-      link.className = "button";
-      link.href = item.externalUrl;
-      link.target = "_blank";
-      link.rel = "noreferrer";
-      link.textContent = "Open Video Link";
-      body.append(link);
-    }
-
-    card.append(visual, body);
-    videoGrid.append(card);
-  });
-}
-
-function openLightbox(item) {
-  lightboxImage.src = item.src || item.thumb || "";
-  lightboxImage.alt = normalizeText(item.caption, normalizeText(item.title, "Banff trip photo"));
-  lightboxFallback.textContent = `${normalizeText(item.location, "Banff")} photo placeholder`;
-  lightboxFallback.classList.remove("is-visible");
-  lightboxImage.hidden = false;
-  lightboxImage.onerror = () => {
-    lightboxImage.hidden = true;
-    lightboxFallback.classList.add("is-visible");
+    sat: {
+      url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      opts: { maxZoom: 17, attribution: "Esri, Maxar, Earthstar Geographics" },
+    },
   };
+  const TRAIL_COLORS = ["#57c4c9", "#d9a441", "#9fd8dc", "#e0876a", "#8fbf6b"];
 
-  lightboxMeta.textContent = `${normalizeText(item.day, "Trip")} / ${normalizeText(
-    item.location,
-    "Canadian Rockies",
-  )}`;
-  lightboxTitle.textContent = normalizeText(item.title, "Untitled Moment");
-  lightboxCaption.textContent = normalizeText(item.caption, "Caption coming soon.");
-  lightboxTags.innerHTML = "";
-  normalizeTags(item.tags).forEach((tag) => lightboxTags.append(createChip(tag)));
+  const pendingMaps = []; // hike minimaps awaiting lazy init
 
-  lightbox.hidden = false;
-  document.body.classList.add("lightbox-open");
-  document.querySelector(".lightbox-close").focus();
-}
-
-function closeLightbox() {
-  lightbox.hidden = true;
-  lightboxImage.removeAttribute("src");
-  document.body.classList.remove("lightbox-open");
-}
-
-document.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
-lightbox.addEventListener("click", (event) => {
-  if (event.target === lightbox) {
-    closeLightbox();
+  /* reveal-on-scroll (declared early: galleries reference it) */
+  const revealObs = new IntersectionObserver((es) => {
+    es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
+  function observeReveals(root) {
+    (root || document).querySelectorAll(".reveal:not(.in)").forEach((el) => revealObs.observe(el));
   }
-});
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !lightbox.hidden) {
-    closeLightbox();
-  }
-});
 
-loadMedia().then((media) => {
-  state.media = media;
-  renderFeatured();
-  renderTagFilter();
-  renderGallery();
-  renderVideos();
-});
+  /* ---------------- nav + progress ---------------- */
+  const navDays = $("#navDays");
+  D.days.forEach((d) => {
+    const a = document.createElement("a");
+    a.href = "#day-" + d.n;
+    a.innerHTML = d.n + ' <span class="nav-label">· ' + d.title.split("&")[0].trim() + "</span>";
+    a.dataset.day = d.n;
+    navDays.appendChild(a);
+  });
+
+  addEventListener("scroll", () => {
+    const h = document.documentElement;
+    $("#progressBar").style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+    $("#nav").classList.toggle("scrolled", h.scrollTop > 40);
+  }, { passive: true });
+
+  /* ---------------- stat band ---------------- */
+  const t = D.totals;
+  $("#statBand").innerHTML = [
+    [t.days, "days"], [t.hikes, "trails hiked"], [t.distanceKm + " km", "on foot"],
+    [t.gainM.toLocaleString() + " m", "climbed"], [t.maxEleM.toLocaleString() + " m", "high point"],
+    [t.photos, "photos"], [t.videos, "films"],
+  ].map(([v, l]) => `<div class="stat-cell"><b>${v}</b><span>${l}</span></div>`).join("");
+  $("#footerStats").textContent =
+    `${t.distanceKm} km hiked · ${t.gainM.toLocaleString()} m of elevation gain · ${t.photos} photographs · ${t.videos} films`;
+
+  /* ---------------- chapters ---------------- */
+  const story = $("#story");
+  const lightboxList = []; // flat, in page order
+
+  D.days.forEach((day) => {
+    const media = D.media.filter((m) => m.day === day.n);
+    const opener = D.media.find((m) => m.id === day.opener);
+    const hikes = D.hikes.filter((h) => h.day === day.n);
+
+    const sec = document.createElement("section");
+    sec.className = "chapter";
+    sec.id = "day-" + day.n;
+    sec.dataset.day = day.n;
+
+    sec.innerHTML = `
+      <div class="chapter-opener">
+        <div class="co-media"><img src="${opener.src}" alt="${esc(opener.caption)}" loading="lazy"></div>
+        <div class="co-scrim"></div>
+        <div class="co-day" aria-hidden="true">${"0" + day.n}</div>
+        <div class="co-content">
+          <p class="co-date">Day ${day.n} · ${day.date}</p>
+          <h2 class="co-title">${day.title}</h2>
+          <p class="co-sub">${day.sub}</p>
+        </div>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-inner">
+          <p class="chapter-narrative reveal">${day.narrative}</p>
+          ${hikes.length ? `<p class="section-kicker reveal" style="text-align:center">The Trails — Day ${day.n}</p><div class="hike-grid"></div>` : ""}
+          <div class="gallery-zone"></div>
+        </div>
+      </div>`;
+    story.appendChild(sec);
+
+    if (!reduceMotion) enableParallax(sec.querySelector(".co-media"));
+
+    if (hikes.length) {
+      const grid = sec.querySelector(".hike-grid");
+      hikes.forEach((h, i) => grid.appendChild(hikeCard(h, TRAIL_COLORS[i % TRAIL_COLORS.length])));
+    }
+
+    /* gallery grouped by stop, chronological */
+    const zone = sec.querySelector(".gallery-zone");
+    const stops = [];
+    media.forEach((m) => {
+      const last = stops[stops.length - 1];
+      if (!last || last.name !== m.stop) stops.push({ name: m.stop, items: [m] });
+      else last.items.push(m);
+    });
+    stops.forEach((stop) => {
+      if (stops.length > 1) {
+        const lbl = document.createElement("p");
+        lbl.className = "stop-label reveal";
+        lbl.textContent = stop.name;
+        zone.appendChild(lbl);
+      }
+      zone.appendChild(buildGallery(stop.items));
+    });
+  });
+
+  /* ---------------- justified gallery ---------------- */
+  function buildGallery(items) {
+    const wrap = document.createElement("div");
+    wrap.className = "gallery";
+    items.forEach((m) => (m._lb = lightboxList.push(m) - 1));
+
+    function layout() {
+      wrap.innerHTML = "";
+      const W = wrap.clientWidth || story.clientWidth || 1100;
+      const target = W < 640 ? 200 : W < 1000 ? 260 : 300;
+      const gap = 6;
+      let row = [], rowAR = 0;
+      const flush = (last) => {
+        if (!row.length) return;
+        let h = (W - gap * (row.length - 1)) / rowAR;
+        if (last && h > target * 1.25) h = target;
+        const rowEl = document.createElement("div");
+        rowEl.className = "g-row";
+        row.forEach((m) => {
+          const ar = Math.max(0.4, Math.min(2.6, m.w / m.h));
+          const el = document.createElement("figure");
+          el.className = "g-item reveal" + (m.type === "video" ? " is-video" : "");
+          el.style.width = h * ar + "px";
+          el.style.height = h + "px";
+          const img = document.createElement("img");
+          img.loading = "lazy";
+          img.decoding = "async";
+          img.alt = m.caption;
+          img.src = m.type === "video" ? m.poster : m.thumb;
+          img.onload = () => img.classList.add("loaded");
+          if (img.complete) img.classList.add("loaded");
+          el.appendChild(img);
+          const cap = document.createElement("figcaption");
+          cap.className = "g-cap";
+          cap.textContent = (m.type === "video" ? "▶ " : "") + m.caption;
+          el.appendChild(cap);
+          el.addEventListener("click", () => openLightbox(m._lb));
+          rowEl.appendChild(el);
+        });
+        wrap.appendChild(rowEl);
+        row = []; rowAR = 0;
+      };
+      items.forEach((m) => {
+        const ar = Math.max(0.4, Math.min(2.6, m.w / m.h));
+        row.push(m); rowAR += ar;
+        if ((W - gap * (row.length - 1)) / rowAR <= target) flush(false);
+      });
+      flush(true);
+      observeReveals(wrap);
+    }
+    requestAnimationFrame(layout);
+    let tmr;
+    addEventListener("resize", () => { clearTimeout(tmr); tmr = setTimeout(layout, 180); });
+    return wrap;
+  }
+
+  /* ---------------- hike cards ---------------- */
+  function hikeCard(h, color) {
+    const card = document.createElement("article");
+    card.className = "hike-card reveal";
+    card.innerHTML = `
+      <div class="hike-map" id="map-${h.id}"></div>
+      <div class="hike-info">
+        <p class="hike-kind">${h.kind}${h.startLocal ? " · set off " + fmtTime(h.startLocal) : ""}</p>
+        <h3 class="hike-name">${h.name}</h3>
+        <p class="hike-blurb">${h.blurb}</p>
+        <div class="hike-stats">
+          <div class="hike-stat"><b>${h.distanceKm}</b><span>km</span></div>
+          <div class="hike-stat"><b>+${h.gainM}</b><span>m gain</span></div>
+          <div class="hike-stat"><b>${h.maxEleM.toLocaleString()}</b><span>m high point</span></div>
+        </div>
+        <div class="elev-wrap"></div>
+      </div>`;
+    card.querySelector(".elev-wrap").appendChild(elevProfile(h, color, card));
+    pendingMaps.push({ el: card.querySelector(".hike-map"), hike: h, color, card });
+    return card;
+  }
+
+  const mapObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      mapObserver.unobserve(e.target);
+      const job = pendingMaps.find((j) => j.el === e.target);
+      if (job) initMiniMap(job);
+    });
+  }, { rootMargin: "400px" });
+
+  function initMiniMap({ el, hike, color, card }) {
+    const map = L.map(el, {
+      zoomControl: false, attributionControl: true, scrollWheelZoom: false, dragging: !L.Browser.mobile,
+    });
+    L.tileLayer(TILES.topo.url, TILES.topo.opts).addTo(map);
+    const latlngs = hike.coords;
+    L.polyline(latlngs, { color: "#0a0d0c", weight: 6, opacity: 0.55 }).addTo(map);
+    const line = L.polyline(latlngs, { color, weight: 3, opacity: 0.95 }).addTo(map);
+    L.circleMarker(latlngs[0], { radius: 5, color: "#0a0d0c", weight: 1.5, fillColor: "#8fbf6b", fillOpacity: 1 }).addTo(map).bindTooltip("Start", { className: "trail-tip" });
+    L.circleMarker(latlngs[latlngs.length - 1], { radius: 5, color: "#0a0d0c", weight: 1.5, fillColor: "#e0876a", fillOpacity: 1 }).addTo(map).bindTooltip("End", { className: "trail-tip" });
+    map.fitBounds(L.latLngBounds(latlngs), { padding: [28, 28] });
+    if (!reduceMotion) {
+      line.setLatLngs([latlngs[0]]);
+      let i = 1;
+      const total = latlngs.length, dur = 1600, t0 = performance.now();
+      (function step(now) {
+        const k = Math.min(1, (now - t0) / dur);
+        const upto = Math.max(1, Math.floor(k * total));
+        if (upto > i) { line.setLatLngs(latlngs.slice(0, upto)); i = upto; }
+        if (k < 1) requestAnimationFrame(step);
+        else line.setLatLngs(latlngs);
+      })(t0);
+    }
+    const probe = L.circleMarker(latlngs[0], { radius: 6, color: "#0a0d0c", weight: 1.5, fillColor: "#9fd8dc", opacity: 0, fillOpacity: 0 }).addTo(map);
+    card._probe = { marker: probe, map };
+  }
+
+  /* ---------------- elevation profile (SVG) ---------------- */
+  function elevProfile(h, color, card) {
+    const W = 400, H = 84, padB = 14, padT = 6;
+    const prof = h.profile;
+    const xs = prof.map((p) => p[0]), ys = prof.map((p) => p[1]);
+    const xMax = Math.max(...xs), yMin = Math.min(...ys), yMax = Math.max(...ys);
+    const ySpan = Math.max(30, yMax - yMin);
+    const X = (d) => (d / xMax) * W;
+    const Y = (e) => padT + (1 - (e - yMin) / ySpan) * (H - padT - padB);
+    let path = "M" + X(xs[0]).toFixed(1) + " " + Y(ys[0]).toFixed(1);
+    for (let i = 1; i < prof.length; i++) path += " L" + X(xs[i]).toFixed(1) + " " + Y(ys[i]).toFixed(1);
+    const gid = "eg-" + h.id;
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("preserveAspectRatio", "none");
+    svg.innerHTML = `
+      <defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${color}" stop-opacity="0.45"/>
+        <stop offset="1" stop-color="${color}" stop-opacity="0.02"/>
+      </linearGradient></defs>
+      <path d="${path} L${W} ${H - padB} L0 ${H - padB} Z" fill="url(#${gid})"/>
+      <path class="elev-line" d="${path}" style="stroke:${color}"/>
+      <text class="elev-axis" x="2" y="${H - 2}">0 km</text>
+      <text class="elev-axis" x="${W - 2}" y="${H - 2}" text-anchor="end">${xMax.toFixed(1)} km</text>
+      <text class="elev-axis" x="2" y="${padT + 8}">${Math.round(yMax)} m</text>
+      <circle class="elev-dot" r="4" cx="-10" cy="-10"></circle>
+      <text class="elev-label" x="0" y="0"></text>`;
+    const line = svg.querySelectorAll("path")[1];
+    if (!reduceMotion) {
+      const len = 1200;
+      line.style.strokeDasharray = len;
+      line.style.strokeDashoffset = len;
+      new IntersectionObserver((es, o) => {
+        es.forEach((e) => {
+          if (!e.isIntersecting) return;
+          o.disconnect();
+          line.style.transition = "stroke-dashoffset 1.8s cubic-bezier(0.22,1,0.36,1)";
+          requestAnimationFrame(() => (line.style.strokeDashoffset = "0"));
+        });
+      }, { threshold: 0.4 }).observe(svg);
+    }
+    const dot = svg.querySelector(".elev-dot");
+    const lbl = svg.querySelector(".elev-label");
+    svg.addEventListener("pointermove", (ev) => {
+      const r = svg.getBoundingClientRect();
+      const fx = Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width));
+      const km = fx * xMax;
+      let idx = 0;
+      while (idx < prof.length - 1 && prof[idx][0] < km) idx++;
+      const cx = X(prof[idx][0]), cy = Y(prof[idx][1]);
+      dot.setAttribute("cx", cx); dot.setAttribute("cy", cy);
+      lbl.textContent = `${prof[idx][0].toFixed(1)} km · ${Math.round(prof[idx][1])} m`;
+      lbl.setAttribute("x", Math.min(Math.max(cx + 8, 4), W - 100));
+      lbl.setAttribute("y", Math.max(cy - 8, 12));
+      if (card._probe) {
+        const ci = Math.min(h.coords.length - 1, Math.round((idx / (prof.length - 1)) * (h.coords.length - 1)));
+        card._probe.marker.setLatLng(h.coords[ci]);
+        card._probe.marker.setStyle({ opacity: 1, fillOpacity: 1 });
+      }
+    });
+    svg.addEventListener("pointerleave", () => {
+      if (card._probe) card._probe.marker.setStyle({ opacity: 0, fillOpacity: 0 });
+    });
+    return svg;
+  }
+
+  /* ---------------- overview map ---------------- */
+  function initOverview() {
+    const map = L.map("overviewMap", { scrollWheelZoom: false });
+    L.tileLayer(TILES.sat.url, TILES.sat.opts).addTo(map);
+    L.tileLayer(TILES.topo.url, Object.assign({}, TILES.topo.opts, { opacity: 0.35 })).addTo(map);
+    let bounds = null;
+    D.hikes.forEach((h) => {
+      const color = TRAIL_COLORS[(h.day - 1) % TRAIL_COLORS.length];
+      L.polyline(h.coords, { color: "#0a0d0c", weight: 7, opacity: 0.5 }).addTo(map);
+      const line = L.polyline(h.coords, { color, weight: 3.5, opacity: 0.95 }).addTo(map);
+      line.bindTooltip(`<b>${h.name}</b> — Day ${h.day}<br>${h.distanceKm} km · +${h.gainM} m`, { className: "trail-tip", sticky: true });
+      line.on("mouseover", () => line.setStyle({ weight: 6 }));
+      line.on("mouseout", () => line.setStyle({ weight: 3.5 }));
+      line.on("click", () => $("#day-" + h.day).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }));
+      bounds = bounds ? bounds.extend(line.getBounds()) : L.latLngBounds(line.getBounds());
+    });
+    map.fitBounds(bounds, { padding: [40, 40] });
+  }
+  new IntersectionObserver((es, o) => {
+    es.forEach((e) => { if (e.isIntersecting) { o.disconnect(); initOverview(); } });
+  }, { rootMargin: "300px" }).observe($("#overviewMap"));
+
+  /* ---------------- parallax ---------------- */
+  function enableParallax(el) {
+    const section = el.closest(".chapter-opener");
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const r = section.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      const k = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+      el.style.transform = `translateY(${k * -7}%)`;
+    };
+    addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+
+  /* ---------------- reveals + active nav ---------------- */
+  observeReveals();
+  document.querySelectorAll(".hike-map").forEach((el) => mapObserver.observe(el));
+
+  const chapterObs = new IntersectionObserver((es) => {
+    es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const n = e.target.dataset.day;
+      navDays.querySelectorAll("a").forEach((a) => a.classList.toggle("active", a.dataset.day === n));
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll(".chapter").forEach((c) => chapterObs.observe(c));
+
+  /* ---------------- lightbox ---------------- */
+  const lb = $("#lightbox"), stage = $("#lbStage"), caption = $("#lbCaption");
+  let lbIndex = -1;
+  function openLightbox(i) {
+    lbIndex = i;
+    render();
+    lb.classList.add("open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    lb.classList.remove("open");
+    lb.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    stage.innerHTML = "";
+  }
+  function render() {
+    const m = lightboxList[lbIndex];
+    stage.innerHTML = "";
+    if (m.type === "video") {
+      const v = document.createElement("video");
+      v.src = m.src; v.poster = m.poster; v.controls = true; v.autoplay = true; v.playsInline = true;
+      stage.appendChild(v);
+    } else {
+      const img = document.createElement("img");
+      img.src = m.src; img.alt = m.caption;
+      stage.appendChild(img);
+    }
+    const day = D.days[m.day - 1];
+    caption.innerHTML = esc(m.caption) +
+      `<span class="lb-meta">Day ${m.day} · ${day.date} · ${esc(m.stop)} · ${lbIndex + 1} / ${lightboxList.length}</span>`;
+  }
+  const step = (d) => { lbIndex = (lbIndex + d + lightboxList.length) % lightboxList.length; render(); };
+  $("#lbClose").addEventListener("click", closeLightbox);
+  $("#lbPrev").addEventListener("click", () => step(-1));
+  $("#lbNext").addEventListener("click", () => step(1));
+  lb.addEventListener("click", (e) => { if (e.target === lb) closeLightbox(); });
+  addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+  let sx = null;
+  lb.addEventListener("touchstart", (e) => (sx = e.touches[0].clientX), { passive: true });
+  lb.addEventListener("touchend", (e) => {
+    if (sx === null) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 48) step(dx > 0 ? -1 : 1);
+    sx = null;
+  }, { passive: true });
+
+  /* ---------------- utils ---------------- */
+  function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+  function fmtTime(hhmm) {
+    const parts = hhmm.split(":").map(Number);
+    const ap = parts[0] >= 12 ? "pm" : "am";
+    return ((parts[0] % 12) || 12) + ":" + String(parts[1]).padStart(2, "0") + " " + ap;
+  }
+})();

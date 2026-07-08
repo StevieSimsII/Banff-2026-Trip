@@ -1,17 +1,19 @@
+# Originals stay local — the site ships optimized derivatives only.
 media/raw/*
 !media/raw/.gitkeep
 
-# Keep original camera/video files out of the repo by default.
+# Raw camera video (MOV) never ships; web MP4s in media/video-web do.
 *.HEIC
 *.heic
 *.MOV
 *.mov
-*.MP4
-*.mp4
+media/videos/
 
-# Selected clips are allowed when intentionally placed here.
-!media/videos/
-!media/videos/**
+# Web-ready videos are allowed.
+!media/video-web/**
+
+# Archived near-duplicate photos stay local.
+media/archive/
 
 .DS_Store
 Thumbs.db
