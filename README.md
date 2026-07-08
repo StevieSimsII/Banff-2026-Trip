@@ -87,4 +87,4 @@ python3 scripts/build_site_data.py
 - onX "markup" tracks carry sparse timestamps, so pace/duration are not shown;
   distance, elevation gain and profiles are computed from the trackpoints.
 - Out-and-back pairs (Ink Pots, Wapta Falls) are merged into single hikes.
-- Trip totals: 32.1 km on foot, 1,367 m of climbing, high point 2,128 m.
+- Trip totals: 19.9 miles on foot, 4,485 ft of climbing, high point 6,982 ft.

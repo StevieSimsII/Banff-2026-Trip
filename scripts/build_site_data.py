@@ -83,7 +83,7 @@ HIKE_META = {
     'Quarry Lake':            dict(day=4, blurb='An easy evening loop in Canmore with Ha Ling and the Three Sisters standing guard.', kind='Evening loop'),
     'Hamilton Falls':         dict(day=5, blurb='A forest ramble from Emerald Lake to a tall ribbon of falls tucked into the trees.', kind='Forest ramble'),
     'Natural Bridge':         dict(day=5, blurb='The Kicking Horse River punching straight through a wall of rock.', kind='Quick stop'),
-    'Wapta Falls':            dict(day=5, blurb="Out and back through lodgepole forest to Yoho's widest waterfall — 150 metres of thunder.", kind='Out & back'),
+    'Wapta Falls':            dict(day=5, blurb="Out and back through lodgepole forest to Yoho's widest waterfall — 500 feet of thunder.", kind='Out & back'),
     'Takakkaw Falls':         dict(day=5, blurb='A paved wander to the base of one of the tallest waterfalls in Canada, fed by the Daly Glacier.', kind='Falls approach'),
 }
 
@@ -125,19 +125,19 @@ DAYS = [
     dict(n=2, date='June 25', iso='2026-06-25', title='Moraine Lake & Lake Louise',
          sub='Two of the bluest lakes on Earth, one day',
          opener='img-0525',
-         narrative="An alpine start put us at Moraine Lake for the morning light, when the Valley of the Ten Peaks glows and the water turns that impossible glacier-flour turquoise. From there to Lake Louise, and up: 3.8 km and nearly 400 vertical metres of forest switchbacks to the Lake Agnes Tea House, where tea has been served on the same porch since 1901."),
+         narrative="An alpine start put us at Moraine Lake for the morning light, when the Valley of the Ten Peaks glows and the water turns that impossible glacier-flour turquoise. From there to Lake Louise, and up: 2.4 miles and nearly 1,300 vertical feet of forest switchbacks to the Lake Agnes Tea House, where tea has been served on the same porch since 1901."),
     dict(n=3, date='June 26', iso='2026-06-26', title='The Icefields Parkway',
          sub='Bow Lake, Peyto Lake & Mistaya Canyon',
          opener='img-0550',
-         narrative="Two hundred kilometres of the most scenic drive in North America. We pulled off for Bow Lake's mirror-still water, climbed to the Peyto Lake overlook — that wolf-head of pure colour — and rolled north past glaciers hanging off the Continental Divide. On the way back, Mistaya Canyon: a whole river folded into a slot of carved limestone."),
+         narrative="A hundred and forty miles of the most scenic drive in North America. We pulled off for Bow Lake's mirror-still water, climbed to the Peyto Lake overlook — that wolf-head of pure colour — and rolled north past glaciers hanging off the Continental Divide. On the way back, Mistaya Canyon: a whole river folded into a slot of carved limestone."),
     dict(n=4, date='June 27', iso='2026-06-27', title='Johnston Canyon & Canmore',
          sub='Catwalks, Ink Pots and an evening at Quarry Lake',
          opener='img-0628',
-         narrative="The biggest hiking day of the trip — 11.7 km all told. Into Johnston Canyon on steel catwalks bolted over the rushing creek, past the Lower and Upper Falls, then up and out of the canyon to the Ink Pots: six spring-fed pools bubbling jade and blue in an open meadow. We finished the day in Canmore, looping Quarry Lake as the light went gold on the Three Sisters."),
+         narrative="The biggest hiking day of the trip — 7.3 miles all told. Into Johnston Canyon on steel catwalks bolted over the rushing creek, past the Lower and Upper Falls, then up and out of the canyon to the Ink Pots: six spring-fed pools bubbling jade and blue in an open meadow. We finished the day in Canmore, looping Quarry Lake as the light went gold on the Three Sisters."),
     dict(n=5, date='June 28', iso='2026-06-28', title='Yoho National Park',
          sub='Emerald Lake, Wapta Falls & Takakkaw Falls',
          opener='img-0672',
-         narrative="Across the Divide into British Columbia for waterfall day. A quiet morning ramble from Emerald Lake to Hamilton Falls, the Kicking Horse River blasting through the Natural Bridge, then the out-and-back to Wapta Falls — 150 metres wide and loud enough to feel. We ended at Takakkaw Falls, glacier meltwater free-falling 254 metres, mist drifting over the parking lot. A fitting finale."),
+         narrative="Across the Divide into British Columbia for waterfall day. A quiet morning ramble from Emerald Lake to Hamilton Falls, the Kicking Horse River blasting through the Natural Bridge, then the out-and-back to Wapta Falls — 500 feet wide and loud enough to feel. We ended at Takakkaw Falls, glacier meltwater free-falling 833 feet, mist drifting over the parking lot. A fitting finale."),
 ]
 
 # stop assignment: (day, cutoff_local_time, stop_name)
@@ -170,7 +170,7 @@ STOP_CAPTIONS = {
     'Emerald Lake & Hamilton Falls': 'Emerald Lake morning, en route to Hamilton Falls.',
     'Natural Bridge': 'The Kicking Horse River punching through the Natural Bridge.',
     'Wapta Falls': "Wapta Falls — Yoho's widest curtain of water.",
-    'Takakkaw Falls': 'Takakkaw Falls, glacier meltwater free-falling 254 metres.',
+    'Takakkaw Falls': 'Takakkaw Falls, glacier meltwater free-falling 833 feet.',
 }
 
 VIDEO_META = {  # id: (utc creation) -> local stop + caption

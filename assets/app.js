@@ -17,6 +17,11 @@
   };
   const TRAIL_COLORS = ["#57c4c9", "#d9a441", "#9fd8dc", "#e0876a", "#8fbf6b"];
 
+  /* imperial display helpers */
+  const mi = (km) => (km * 0.621371).toFixed(1);
+  const ft = (m) => Math.round(m * 3.28084);
+  const ftFmt = (m) => ft(m).toLocaleString();
+
   const pendingMaps = []; // hike minimaps awaiting lazy init
 
   /* reveal-on-scroll (declared early: galleries reference it) */
@@ -46,12 +51,12 @@
   /* ---------------- stat band ---------------- */
   const t = D.totals;
   $("#statBand").innerHTML = [
-    [t.days, "days"], [t.hikes, "trails hiked"], [t.distanceKm + " km", "on foot"],
-    [t.gainM.toLocaleString() + " m", "climbed"], [t.maxEleM.toLocaleString() + " m", "high point"],
+    [t.days, "days"], [t.hikes, "trails hiked"], [mi(t.distanceKm) + " mi", "on foot"],
+    [ftFmt(t.gainM) + " ft", "climbed"], [ftFmt(t.maxEleM) + " ft", "high point"],
     [t.photos, "photos"], [t.videos, "films"],
   ].map(([v, l]) => `<div class="stat-cell"><b>${v}</b><span>${l}</span></div>`).join("");
   $("#footerStats").textContent =
-    `${t.distanceKm} km hiked · ${t.gainM.toLocaleString()} m of elevation gain · ${t.photos} photographs · ${t.videos} films`;
+    `${mi(t.distanceKm)} miles hiked · ${ftFmt(t.gainM)} ft of elevation gain · ${t.photos} photographs · ${t.videos} films`;
 
   /* ---------------- chapters ---------------- */
   const story = $("#story");
@@ -180,9 +185,9 @@
         <h3 class="hike-name">${h.name}</h3>
         <p class="hike-blurb">${h.blurb}</p>
         <div class="hike-stats">
-          <div class="hike-stat"><b>${h.distanceKm}</b><span>km</span></div>
-          <div class="hike-stat"><b>+${h.gainM}</b><span>m gain</span></div>
-          <div class="hike-stat"><b>${h.maxEleM.toLocaleString()}</b><span>m high point</span></div>
+          <div class="hike-stat"><b>${mi(h.distanceKm)}</b><span>miles</span></div>
+          <div class="hike-stat"><b>+${ftFmt(h.gainM)}</b><span>ft gain</span></div>
+          <div class="hike-stat"><b>${ftFmt(h.maxEleM)}</b><span>ft high point</span></div>
         </div>
         <div class="elev-wrap"></div>
       </div>`;
@@ -230,7 +235,7 @@
   /* ---------------- elevation profile (SVG) ---------------- */
   function elevProfile(h, color, card) {
     const W = 400, H = 84, padB = 14, padT = 6;
-    const prof = h.profile;
+    const prof = h.profile.map((p) => [p[0] * 0.621371, p[1] * 3.28084]);
     const xs = prof.map((p) => p[0]), ys = prof.map((p) => p[1]);
     const xMax = Math.max(...xs), yMin = Math.min(...ys), yMax = Math.max(...ys);
     const ySpan = Math.max(30, yMax - yMin);
@@ -249,9 +254,9 @@
       </linearGradient></defs>
       <path d="${path} L${W} ${H - padB} L0 ${H - padB} Z" fill="url(#${gid})"/>
       <path class="elev-line" d="${path}" style="stroke:${color}"/>
-      <text class="elev-axis" x="2" y="${H - 2}">0 km</text>
-      <text class="elev-axis" x="${W - 2}" y="${H - 2}" text-anchor="end">${xMax.toFixed(1)} km</text>
-      <text class="elev-axis" x="2" y="${padT + 8}">${Math.round(yMax)} m</text>
+      <text class="elev-axis" x="2" y="${H - 2}">0 mi</text>
+      <text class="elev-axis" x="${W - 2}" y="${H - 2}" text-anchor="end">${xMax.toFixed(1)} mi</text>
+      <text class="elev-axis" x="2" y="${padT + 8}">${Math.round(yMax).toLocaleString()} ft</text>
       <circle class="elev-dot" r="4" cx="-10" cy="-10"></circle>
       <text class="elev-label" x="0" y="0"></text>`;
     const line = svg.querySelectorAll("path")[1];
@@ -278,7 +283,7 @@
       while (idx < prof.length - 1 && prof[idx][0] < km) idx++;
       const cx = X(prof[idx][0]), cy = Y(prof[idx][1]);
       dot.setAttribute("cx", cx); dot.setAttribute("cy", cy);
-      lbl.textContent = `${prof[idx][0].toFixed(1)} km · ${Math.round(prof[idx][1])} m`;
+      lbl.textContent = `${prof[idx][0].toFixed(1)} mi · ${Math.round(prof[idx][1]).toLocaleString()} ft`;
       lbl.setAttribute("x", Math.min(Math.max(cx + 8, 4), W - 100));
       lbl.setAttribute("y", Math.max(cy - 8, 12));
       if (card._probe) {
@@ -303,7 +308,7 @@
       const color = TRAIL_COLORS[(h.day - 1) % TRAIL_COLORS.length];
       L.polyline(h.coords, { color: "#0a0d0c", weight: 7, opacity: 0.5 }).addTo(map);
       const line = L.polyline(h.coords, { color, weight: 3.5, opacity: 0.95 }).addTo(map);
-      line.bindTooltip(`<b>${h.name}</b> — Day ${h.day}<br>${h.distanceKm} km · +${h.gainM} m`, { className: "trail-tip", sticky: true });
+      line.bindTooltip(`<b>${h.name}</b> — Day ${h.day}<br>${mi(h.distanceKm)} mi · +${ftFmt(h.gainM)} ft`, { className: "trail-tip", sticky: true });
       line.on("mouseover", () => line.setStyle({ weight: 6 }));
       line.on("mouseout", () => line.setStyle({ weight: 3.5 }));
       line.on("click", () => $("#day-" + h.day).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }));
