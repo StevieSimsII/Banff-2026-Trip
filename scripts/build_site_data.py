@@ -131,9 +131,9 @@ DAYS = [
          opener='img-0550',
          narrative="A hundred and forty miles of the most scenic drive in North America. We pulled off for Bow Lake's mirror-still water, climbed to the Peyto Lake overlook — that wolf-head of pure colour — and rolled north past glaciers hanging off the Continental Divide. On the way back, Mistaya Canyon: a whole river folded into a slot of carved limestone."),
     dict(n=4, date='June 27', iso='2026-06-27', title='Johnston Canyon & Canmore',
-         sub='Catwalks, Ink Pots and an evening at Quarry Lake',
+         sub='Catwalks, Ink Pots, Quarry Lake and the Norquay lookout',
          opener='img-0628',
-         narrative="The biggest hiking day of the trip — 7.3 miles all told. Into Johnston Canyon on steel catwalks bolted over the rushing creek, past the Lower and Upper Falls, then up and out of the canyon to the Ink Pots: six spring-fed pools bubbling jade and blue in an open meadow. We finished the day in Canmore, looping Quarry Lake as the light went gold on the Three Sisters."),
+         narrative="The biggest hiking day of the trip — 7.3 miles all told. Into Johnston Canyon on steel catwalks bolted over the rushing creek, past the Lower and Upper Falls, then up and out of the canyon to the Ink Pots: six spring-fed pools bubbling jade and blue in an open meadow. We looped Quarry Lake in Canmore as the light went gold on the Three Sisters, then drove the Norquay switchbacks to the lookout \u2014 Mount Rundle and the whole town of Banff laid out beneath us."),
     dict(n=5, date='June 28', iso='2026-06-28', title='Yoho National Park',
          sub='Emerald Lake, Wapta Falls & Takakkaw Falls',
          opener='img-0672',
@@ -148,7 +148,8 @@ STOPS = {
     3: [('10:50', 'Bow Lake'), ('12:15', 'Peyto Lake Overlook'),
         ('17:00', 'Icefields Parkway'), ('17:50', 'Mistaya Canyon'), ('23:59', 'Icefields Parkway')],
     4: [('09:15', 'Johnston Canyon'), ('10:45', 'Ink Pots'), ('12:30', 'Johnston Canyon'),
-        ('16:30', 'Quarry Lake, Canmore'), ('23:59', 'Canmore')],
+        ('16:30', 'Quarry Lake, Canmore'), ('17:15', 'Vermilion Lakes'),
+        ('18:30', 'Mount Norquay Lookout'), ('23:59', 'Banff Evening')],
     5: [('11:30', 'Emerald Lake & Hamilton Falls'), ('12:45', 'Natural Bridge'),
         ('15:30', 'Wapta Falls'), ('23:59', 'Takakkaw Falls')],
 }
@@ -166,7 +167,9 @@ STOP_CAPTIONS = {
     'Johnston Canyon': 'Steel catwalks over Johnston Creek, spray in the air.',
     'Ink Pots': 'The Ink Pots meadow — cold mineral springs bubbling jade and blue.',
     'Quarry Lake, Canmore': 'Evening loop at Quarry Lake, the Three Sisters above Canmore.',
-    'Canmore': 'Golden hour above Canmore.',
+    'Vermilion Lakes': 'Mount Rundle across the still water of Vermilion Lakes.',
+    'Banff Evening': 'Winding down above Banff before dinner in town.',
+    'Mount Norquay Lookout': 'Evening at the Mount Norquay lookout \u2014 Mount Rundle and the town of Banff spread out below.',
     'Emerald Lake & Hamilton Falls': 'Emerald Lake morning, en route to Hamilton Falls.',
     'Natural Bridge': 'The Kicking Horse River punching through the Natural Bridge.',
     'Wapta Falls': "Wapta Falls — Yoho's widest curtain of water.",
@@ -238,8 +241,37 @@ totals = {
     'days': len(DAYS),
 }
 
+POIS = [
+    {'name': 'Mount Norquay Lookout', 'lat': 51.199649, 'lng': -115.611826, 'day': 4,
+     'blurb': 'Evening viewpoint on the Norquay switchbacks \u2014 Mount Rundle and the Banff townsite below.'},
+]
+
+RESTAURANTS = [
+    {'name': 'Bluebird Wood-Fired Steakhouse & Fondue', 'night': 'Day 1 \u00b7 June 24', 'time': '7:00 pm',
+     'address': '214 Lynx St, Banff', 'phone': '(403) 985-9163',
+     'blurb': 'Wood-fired Alberta beef and all-day-roasted prime rib in a mid-century chalet \u2014 the first dinner of the trip, hours after landing.',
+     'mapsUrl': 'https://www.google.com/maps/search/?api=1&query=Bluebird%20Wood%20Fired%20Steakhouse%20Banff'},
+    {'name': 'Balkan Mediterranean Restaurant', 'night': 'Day 2 \u00b7 June 25', 'time': '9:00 pm',
+     'address': '120 Banff Ave, Banff', 'phone': '(403) 762-3454',
+     'blurb': 'Fresh Mediterranean on Banff Avenue \u2014 souvlaki, pita and Greek Night energy after a double-lake hiking day.',
+     'mapsUrl': 'https://www.google.com/maps/search/?api=1&query=Balkan%20Restaurant%20Banff'},
+    {'name': 'Hello Sunshine Japanese Restaurant', 'night': 'Day 3 \u00b7 June 26', 'time': '7:30 pm',
+     'address': '208 Wolf St, Banff', 'phone': '(403) 985-7225',
+     'blurb': 'Sushi, ramen and fire tables (plus private karaoke rooms) \u2014 an OpenTable Top-100 spot to land after the Icefields Parkway.',
+     'mapsUrl': 'https://www.google.com/maps/search/?api=1&query=Hello%20Sunshine%20Banff'},
+    {'name': 'Bear Street Tavern', 'night': 'Day 4 \u00b7 June 27', 'time': '9:00 pm',
+     'address': '211 Bear St, Banff', 'phone': '(403) 762-2021',
+     'blurb': 'Banff\u2019s best pizza and bear-sized cocktails \u2014 exactly what the biggest hiking day of the trip called for.',
+     'mapsUrl': 'https://www.google.com/maps/search/?api=1&query=Bear%20Street%20Tavern%20Banff'},
+    {'name': 'Chuck\u2019s Steakhouse & Patio', 'night': 'Day 5 \u00b7 June 28', 'time': '7:30 pm',
+     'address': '101 Banff Ave, Banff', 'phone': '(403) 762-4825',
+     'blurb': 'Dry-aged Alberta beef under an 1800\u00b0 broiler with panoramic mountain views \u2014 the send-off dinner.',
+     'mapsUrl': 'https://www.google.com/maps/search/?api=1&query=Chucks%20Steakhouse%20Banff'},
+]
+
 site = {'hero': HERO, 'finale': FINALE, 'totals': totals,
-        'days': DAYS, 'hikes': hikes, 'media': out_photos}
+        'days': DAYS, 'hikes': hikes, 'media': out_photos,
+        'pois': POIS, 'restaurants': RESTAURANTS}
 
 with open('assets/site-data.js', 'w') as f:
     f.write('window.SITE_DATA = ')

@@ -314,11 +314,29 @@
       line.on("click", () => $("#day-" + h.day).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }));
       bounds = bounds ? bounds.extend(line.getBounds()) : L.latLngBounds(line.getBounds());
     });
+    (D.pois || []).forEach((p) => {
+      const mk = L.circleMarker([p.lat, p.lng], { radius: 8, color: "#0a0d0c", weight: 2, fillColor: "#d9a441", fillOpacity: 1 }).addTo(map);
+      mk.bindTooltip(`<b>${p.name}</b> — Day ${p.day}<br>${p.blurb}`, { className: "trail-tip", sticky: true });
+      mk.on("click", () => $("#day-" + p.day).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }));
+      bounds = bounds ? bounds.extend([p.lat, p.lng]) : L.latLngBounds([[p.lat, p.lng], [p.lat, p.lng]]);
+    });
     map.fitBounds(bounds, { padding: [40, 40] });
   }
   new IntersectionObserver((es, o) => {
     es.forEach((e) => { if (e.isIntersecting) { o.disconnect(); initOverview(); } });
   }, { rootMargin: "300px" }).observe($("#overviewMap"));
+
+  /* ---------------- restaurants ---------------- */
+  const eatGrid = $("#eatGrid");
+  if (eatGrid && D.restaurants) {
+    eatGrid.innerHTML = D.restaurants.map((r) => `
+      <article class="eat-card reveal">
+        <p class="eat-night">${r.night} · ${r.time}</p>
+        <h3 class="eat-name">${r.name}</h3>
+        <p class="eat-blurb">${r.blurb}</p>
+        <p class="eat-meta"><a href="${r.mapsUrl}" target="_blank" rel="noopener">${r.address}</a> · ${r.phone}</p>
+      </article>`).join("");
+  }
 
   /* ---------------- parallax ---------------- */
   function enableParallax(el) {

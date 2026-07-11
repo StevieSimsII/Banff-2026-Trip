@@ -238,6 +238,27 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .stop-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
+/* ---------- restaurants ---------- */
+.eats { padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.2rem, 5vw, 4rem); }
+.eats-inner { max-width: 1180px; margin: 0 auto; }
+.eats-title {
+  font-family: var(--serif); font-weight: 400; text-align: center;
+  font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.eat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.2rem; }
+.eat-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 1.6rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem;
+  transition: transform 0.35s var(--ease), border-color 0.35s;
+}
+.eat-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+.eat-night { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.eat-name { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; line-height: 1.2; }
+.eat-blurb { color: var(--text-dim); font-size: 0.92rem; flex: 1; }
+.eat-meta { font-size: 0.8rem; color: var(--muted); }
+.eat-meta a { color: var(--glacier); }
+.eat-meta a:hover { text-decoration: underline; }
+
 /* ---------- finale / footer ---------- */
 .finale { position: relative; height: 78svh; min-height: 440px; overflow: hidden; }
 .finale-media { position: absolute; inset: 0; }
